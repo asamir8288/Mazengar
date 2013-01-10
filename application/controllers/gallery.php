@@ -59,6 +59,7 @@ class Gallery extends CI_Controller {
         $this->template->add_css('layout/css/jquery-ui.css?' . $this->config->item('static_version'));
         $this->template->add_css('layout/css/uploadify.css?' . $this->config->item('static_version'));
         $this->template->add_css('layout/css/reveal.css?' . $this->config->item('static_version'));
+        $this->template->add_js('layout/js/jquery.dragsort-0.5.1.js?' . $this->config->item('static_version'));
 
         $this->template->write_view('content', 'backend/gallery/add_edit_album', $this->data);
         $this->template->render();
