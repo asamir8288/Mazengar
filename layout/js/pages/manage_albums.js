@@ -19,7 +19,7 @@ $(document).ready(function(){
         var album_id = $(this).attr('id');
         $.get(site_url()+"gallery/delete_album/"+album_id, function(data){
             if(data == 'success'){
-                current_element.parent().parent().fadeOut(); 
+                current_element.parent().parent().parent().fadeOut(); 
             }                
         },'json');                      
     });
