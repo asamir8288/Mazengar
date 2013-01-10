@@ -42,5 +42,5 @@ foreach ($albums as $album) { ?>
  </ul>
 
 <div style="clear: both;height: 10px;"></div>
-    <?php echo form_submit('submit', 'Re-Arrange Albums', 'class="large-btn gray-bg" style="margin-left: 0px;"');?>
+    <?php echo form_submit('submit', 'Re-Arrange Albums', 'class="large-btn gray-bg manage_lists" style="margin-left: 0px;"');?>
 <?php echo form_close();?>

@@ -42,9 +42,9 @@
         }
         
         
-        if($('.menu_id').val() != ''){
-            $.get(site_url() + 'product/get_menu_subs/' + $('.branch_id').val(), function(data){
-                if(data){
+        if($('.menu_id').val() != ''){            
+            $.get(site_url() + 'product/get_menu_subs/' + $('.menu_id').val(), function(data){
+                if(data.length > 3){                    
                     $('.menu_subs').append(data);
                     $('.shopcategory').attr('name', 'sub_id');
                 }else{
@@ -57,7 +57,7 @@
             $('.shopcategory').last().attr('name', 'sub_id');
         }
        
-        $('.shopcategory').live("change",function(){            
+        $('.shopcategory').live("change",function(){
             $($(this)).nextAll().remove()
             $.get(site_url() + 'product/get_menu_subs/' + $(this).val(), function(data){
                 if(data){
@@ -120,14 +120,14 @@
         </div>
     </div>
 
-		<div id="myModal" class="reveal-modal">
-				 <h1 style="font-size: 14px;margin-bottom: 9px;font-weight: bold;">Choose Image to Upload:</h1>
-				 <div class="modal-innercontent">
-				 
-				 </div>
-				 <a class="close-reveal-modal">&#215;</a>
-				</div>
-				
+    <div id="myModal" class="reveal-modal">
+        <h1 style="font-size: 14px;margin-bottom: 9px;font-weight: bold;">Choose Image to Upload:</h1>
+        <div class="modal-innercontent">
+
+        </div>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
     <div class="field-group">
         <label class="form-label">Collection</label>
         <div class="select-options-wrapper">
@@ -148,8 +148,8 @@
     <?php foreach ($filters as $filter) { ?>
         <div class="field-group">          
             <label style="margin-left:215px">
-                <input type="checkbox" name="filter_id[]" value="<?php echo $filter['id'];?>" />
-                <?php echo $filter['name'];?></label>            
+                <input type="checkbox" name="filter_id[]" value="<?php echo $filter['id']; ?>" />
+                <?php echo $filter['name']; ?></label>            
         </div>
     <?php } ?>
 </div>

@@ -20,6 +20,9 @@ $(document).ready(function(){
         $.get(site_url()+"offer/delete_offer/"+prod_id, function(data){
             if(data == 'success'){
                 current_element.parent().parent().parent().fadeOut(); 
+                if($(".draggable-list").children().length <= 1){
+                    $('.manage_lists').hide();
+                }
             }                
         },'json');                      
     });

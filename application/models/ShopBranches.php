@@ -73,5 +73,41 @@ class ShopBranches extends BaseShopBranches {
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->fetchOne();
     }
+    
+    public function activateDeactivate($branch_id) {
+        $status = false;
+        if ($this->isBranchActive($branch_id))
+            $status = true;
+
+        Doctrine_Query::create()
+                ->update('ShopBranches sb')
+                ->set('sb.is_active', '?', $status)
+                ->where('sb.id=?', $branch_id)
+                ->execute();
+
+        return $status;
+    }
+    
+    private function isBranchActive($branch_id) {
+        $q = Doctrine_Query::create()
+                ->select('sb.is_active')
+                ->from('ShopBranches sb')
+                ->where('sb.id=?', $branch_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+
+
+        if ($q['is_active'])
+            return false;
+        return true;
+    }
+
+    public function deleteBranch($branch_id) {
+        Doctrine_Query::create()
+                ->update('ShopBranches sb')
+                ->set('sb.deleted', '?', true)
+                ->where('sb.id=?', $branch_id)
+                ->execute();
+    }
 
 }

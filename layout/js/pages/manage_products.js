@@ -19,10 +19,18 @@ $(document).ready(function(){
         var prod_id = $(this).attr('id');
         $.get(site_url()+"product/delete_product/"+prod_id, function(data){
             if(data == 'success'){
-                current_element.parent().parent().parent().fadeOut(); 
+                current_element.parent().parent().parent().fadeOut();
+                if($(".draggable-list").children().length <= 1){
+                    $('.manage_lists').hide();
+                }
             }                
         },'json');                      
     });
 	
-	$(".draggable-list").dragsort({ dragSelector: ".box", itemSelector:"li.drag-list-item", dragBetween: true, placeHolderTemplate: "<li class='placeHolder drag-list-item'>	<div class='box'>	</div></li>" });		
+    $(".draggable-list").dragsort({
+        dragSelector: ".box", 
+        itemSelector:"li.drag-list-item", 
+        dragBetween: true, 
+        placeHolderTemplate: "<li class='placeHolder drag-list-item'>	<div class='box'>	</div></li>"
+    });		
 });

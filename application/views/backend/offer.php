@@ -8,7 +8,7 @@
     $(document).ready(function(){
         if($('.shop_id').val() != ''){
             $.get(site_url() + 'product/get_menu_subs/' + $('.shop_id').val(), function(data){
-                if(data){
+                if(data.length > 3){
                     $('.menu_subs').append(data);
                     $('.shopcategory').attr('name', 'sub_id');
                 }else{
@@ -38,16 +38,16 @@
 <div id="inner-page-content">
 
     <div class="left-container">
-	
-		<div id="submit-area">
-				
-				</div>
-				
+
+        <div id="submit-area">
+
+        </div>
+
         <?php
         $menu_top_level = $menuTopLevel;
         if (isset($offer_menu) && count($offer_menu) == 1) {
             $menu_top_level = $offer_menu[0]['id'];
-        }else if(isset($offer_menu)){
+        } else if (isset($offer_menu)) {
             $menu_top_level = '';
         }
         ?>  
@@ -82,7 +82,7 @@
 
         <div class="field-group">
             <label class="form-label-short">Start Date</label>
-            <input type="text" name="start_date" value="<?php echo isset($data['start_date']) ? substr($data['start_date'],0, 10) : ''; ?>" required="required" id="startdate" title="Must be 3 or more characters" />
+            <input type="text" name="start_date" value="<?php echo isset($data['start_date']) ? substr($data['start_date'], 0, 10) : ''; ?>" required="required" id="startdate" title="Must be 3 or more characters" />
         </div>
         <div class="field-group">
             <label class="form-label-short">End Date</label>
@@ -105,7 +105,7 @@
             ?>
             <div class="custom-checkbox<?php echo $checked; ?>" style="margin-left:177px"></div>            
             <label class="form-label-checkbox"  style="margin-left:14px">Availability</label>
-            <input type="hidden" name="availability" class="hidden-availability" value="<?php echo $chbox_value;?>" />
+            <input type="hidden" name="availability" class="hidden-availability" value="<?php echo $chbox_value; ?>" />
         </div>
     </div>
 
@@ -119,101 +119,101 @@
     <div class="dotted-serpartor"></div>
 
     <div class="left-container-add-product">
-	
-			<div id="myModal" class="reveal-modal">
-				 <h1 style="font-size: 14px;margin-bottom: 9px;font-weight: bold;">Choose Image to Upload:</h1>
-				 <div class="modal-innercontent">
-				 
-				 </div>
-				 <a class="close-reveal-modal">&#215;</a>
-				</div>
-				
+
+        <div id="myModal" class="reveal-modal">
+            <h1 style="font-size: 14px;margin-bottom: 9px;font-weight: bold;">Choose Image to Upload:</h1>
+            <div class="modal-innercontent">
+
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+
         <?php
         if (isset($data) && count($data['ShopOfferComponents'])) {
-		echo "<ul class=\"draggable-list\">";
+            echo "<ul class=\"draggable-list\">";
             foreach ($data['ShopOfferComponents'] as $media) {
                 switch ($media['type']) {
                     case 'text':
                         ?>
-						<li class="drag-list-item">
-                        <div class="product-item-wrapper">				
-                            <textarea class="products-textarea" name="addional_desc[]" ><?php echo $media['item']; ?></textarea>
-                            <ul class="product-item-action-list">				
-                                <li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li>                               
-                                <li class="product-item-icon delete-product-icon"><a >Delete</a></li>
-								<li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>
-                            </ul>
-                            <div class="caption-area-wrapper">
-                                <input type="text" placeholder="Caption" maxlength="70"/>
-                            </div>
+                        <li class="drag-list-item">
+                            <div class="product-item-wrapper">				
+                                <textarea class="products-textarea" name="addional_desc[]" ><?php echo $media['item']; ?></textarea>
+                                <ul class="product-item-action-list">				
+                                    <li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li>                               
+                                    <li class="product-item-icon delete-product-icon"><a >Delete</a></li>
+                                    <li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>
+                                </ul>
+                                <div class="caption-area-wrapper">
+                                    <input type="text" placeholder="Caption" maxlength="70"/>
+                                </div>
 
-                        </div>
-						</li>
+                            </div>
+                        </li>
                         <?php
                         break;
                     case 'image':
                         ?>
-						<li class="drag-list-item">
-                        <div class="product-item-wrapper">	
-                            <div class="products-image-upload" style="">
-                                <div class="uploaded-img-wrapper">
-                                    <input type="hidden" value="<?php echo $media['item']; ?>" name="additional_imgs[]">
-                                    <img src="<?php echo static_url(); ?>uploads/<?php echo $media['item']; ?>">
+                        <li class="drag-list-item">
+                            <div class="product-item-wrapper">	
+                                <div class="products-image-upload" style="">
+                                    <div class="uploaded-img-wrapper">
+                                        <input type="hidden" value="<?php echo $media['item']; ?>" name="additional_imgs[]">
+                                        <img src="<?php echo static_url(); ?>uploads/<?php echo $media['item']; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <ul class="product-item-action-list">				
-                                <li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li>					
-                                <li class="product-item-icon delete-product-icon"><a>Delete</a></li>         
-								<li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>								
-                            </ul>
-                            <div class="caption-area-wrapper">
-                                <input type="text" placeholder="Caption" maxlength="70"/>
-                            </div>
+                                <ul class="product-item-action-list">				
+                                    <li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li>					
+                                    <li class="product-item-icon delete-product-icon"><a>Delete</a></li>         
+                                    <li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>								
+                                </ul>
+                                <div class="caption-area-wrapper">
+                                    <input type="text" placeholder="Caption" maxlength="70"/>
+                                </div>
 
-                        </div> 
-						</li>						
+                            </div> 
+                        </li>						
                         <?php
                         break;
                     case 'vedio':
                         ?>
-						<li class="drag-list-item">
-                        <div class="product-item-wrapper">				
-                            <div class="products-video-upload" style="">
-                                <a class="large-btn-products gray-bg-products  upload-video-btn" style="display: none;">YOUTUBE LINK</a>
-                                <input type="hidden" name="additional_vedio[]" value="<?php echo $media['item']; ?>">
-                                <object class="youtube-video-frame" width="470" height="345">
-                                    <param name="movie" value="<?php echo $media['item']; ?>">
-                                    <param name="allowFullScreen" value="true">
-                                    <param name="allowscriptaccess" value="always">
-                                    <embed src="<?php echo $media['item']; ?>" type="application/x-shockwave-flash" width="470" height="345" allowscriptaccess="always" allowfullscreen="true">
-                                </object>
-                            </div>
-                            <ul class="product-item-action-list">				
-                                <li class="product-item-icon add-product-caption-icon"><a >Add Caption</a></li>
-                                <li class="product-item-icon delete-product-icon"><a>Delete</a></li>        
-								<li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>								
-                            </ul>
-                            <div class="caption-area-wrapper">
-                                <input type="text" placeholder="Caption" maxlength="70"/>
-                            </div>
+                        <li class="drag-list-item">
+                            <div class="product-item-wrapper">				
+                                <div class="products-video-upload" style="">
+                                    <a class="large-btn-products gray-bg-products  upload-video-btn" style="display: none;">YOUTUBE LINK</a>
+                                    <input type="hidden" name="additional_vedio[]" value="<?php echo $media['item']; ?>">
+                                    <object class="youtube-video-frame" width="470" height="345">
+                                        <param name="movie" value="<?php echo $media['item']; ?>">
+                                        <param name="allowFullScreen" value="true">
+                                        <param name="allowscriptaccess" value="always">
+                                        <embed src="<?php echo $media['item']; ?>" type="application/x-shockwave-flash" width="470" height="345" allowscriptaccess="always" allowfullscreen="true">
+                                    </object>
+                                </div>
+                                <ul class="product-item-action-list">				
+                                    <li class="product-item-icon add-product-caption-icon"><a >Add Caption</a></li>
+                                    <li class="product-item-icon delete-product-icon"><a>Delete</a></li>        
+                                    <li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>								
+                                </ul>
+                                <div class="caption-area-wrapper">
+                                    <input type="text" placeholder="Caption" maxlength="70"/>
+                                </div>
 
-                        </div>
-						</li>
+                            </div>
+                        </li>
                         <?php
                         break;
                 }
             }
-			echo "</ul>";
+            echo "</ul>";
         } else {
             ?>
-			<img src="<?php echo static_url(); ?>layout/images/no-items-yet.png" class="no-items-yet"/>						
-			<ul class="draggable-list">			
-			</ul>            
+            <img src="<?php echo static_url(); ?>layout/images/no-items-yet.png" class="no-items-yet"/>						
+            <ul class="draggable-list">			
+            </ul>            
         <?php } ?>
     </div>
 
     <div class="right-container-add-product">
-        
+
 
         <div class="add-items-menu-wrapper">			
             <ul class="product-icons-list">									

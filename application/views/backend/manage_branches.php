@@ -1,4 +1,4 @@
-<a href="<?php echo site_url('product');?>" class="create_product_btn"></a>
+<a href="<?php echo site_url('branch');?>" class="create_product_btn"></a>
 
 <style>
 	.draggable-list { width: 865px; list-style-type:none; margin:0px; }
@@ -34,5 +34,5 @@
  </ul>
 
 <div style="clear: both;height: 10px;"></div>
-    <?php echo form_submit('submit', 'Re-Arrange Albums', 'class="large-btn gray-bg" style="margin-left: 0px;"');?>
+    <?php echo form_submit('submit', 'Re-Arrange Albums', 'class="large-btn gray-bg manage_lists" style="margin-left: 0px;"');?>
 <?php echo form_close();?>

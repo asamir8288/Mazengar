@@ -8,7 +8,7 @@
     $(document).ready(function(){                
         if($('.product_id').val() != ''){
             $.get(site_url() + 'product/get_menu_subs/' + $('.product_id').val(), function(data){
-                if(data){
+                if(data.length > 3){
                     $('.menu_subs').append(data);
                     $('.shopcategory').attr('name', 'sub_id');
                 }else{

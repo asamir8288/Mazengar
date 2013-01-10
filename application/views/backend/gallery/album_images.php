@@ -103,6 +103,6 @@
 <div style="clear: both;"></div>
 <?php
 if (count($albumImages) > 1)
-    echo form_submit('submit', 'Re-Arrange Album Images', 'class="large-btn gray-bg" style="margin-left: 0px;"');
+    echo form_submit('submit', 'Re-Arrange Album Images', 'class="large-btn gray-bg manage_lists" style="margin-left: 0px;"');
 ?>
 <?php echo form_close(); ?>
