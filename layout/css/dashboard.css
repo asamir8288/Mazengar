@@ -1,0 +1,47 @@
+.dashboard-header{
+height: 68px;
+width: 967px;
+background: white;
+background-image: url(../images/dashboard-bg.jpg);
+margin-left: -48px;
+margin-top: -22px;
+border-bottom: 1px solid #D61730;
+float:left;
+}
+.dashboard-header img{
+float: left;
+}
+
+.product-title{
+font-family: times, georgia, serif;
+font-size: 32px;
+float: left;
+margin-top: 16px;
+margin-left: 20px;
+}
+
+.upload-logo{
+margin-left: -24px;
+float: left;
+margin-top: 8px;
+color: #A3A3A3;
+font-family: calibri,arial,sans-serif;
+font-size: 12px;
+}
+
+.upload-logo-anchor{
+color: #2281E3;
+}
+
+.dashboard-list{
+float: left;
+width: 632px;
+margin-top: 56px;
+
+}
+
+.dashboard-list li{
+float: left;
+margin-left: 10px;
+margin-top:10px;
+}

@@ -1,0 +1,36 @@
+.right-container{
+		float: right;
+		width: 248px;
+		position: relative;
+		right: 70px;
+		top: 17px;
+    }
+
+    .main-image{
+       margin-top: 11px;
+		float: left;
+		margin-left: 13px;
+		width: 222px;
+		max-height: 230px;
+		border: 1px solid #E9E9E9;
+		-webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05),0 1px 3px rgba(0, 0, 0, 0.11);
+		-moz-box-shadow: 0 0 3px 1px rgba(0,0,0,0.05),0 1px 3px rgba(0,0,0,0.11);
+		box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05),0 1px 3px rgba(0, 0, 0, 0.11);
+		border: 1px solid #EBEBEB;
+		border: 3px solid rgba(255, 255, 255, 0.99);
+    }
+
+    .upload-image-anchor{        
+	margin-top: 7px;
+float: left;        
+        margin-left: 54px;
+        font-size: 13px;
+        font-family: calibri,Arial, sans-serif;
+        cursor: pointer;
+        color: #007AFF;
+        clear: both;
+
+    }
+    .upload-image-anchor:hover{
+        text-decoration: underline;
+    }
