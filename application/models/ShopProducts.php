@@ -170,4 +170,10 @@ class ShopProducts extends BaseShopProducts {
                         ->fetchOne();
     }
 
+    public function hardDeleteProducts($shop_id){
+        Doctrine_Query::create()
+                ->delete('ShopProducts p')
+                ->where('p.sub_id IN (SELECT ms.id FROM ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
+                ->execute();
+    }
 }
