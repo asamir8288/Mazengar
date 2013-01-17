@@ -30,7 +30,7 @@
                 <!-- BEGIN menu-header-wrapper -->	
                 <div id="menu-header-wrapper">
 
-                    <a class="site-logo"></a>
+                    <a href="<?php echo site_url();?>" class="site-logo"></a>
                     <ul class="header-menu-list">							
                         <li class="menu-header-item <?php echo ($menu[0]) ? 'home-active' : 'home'; ?>"><a href="<?php echo site_url(); ?>">HOME</a></li>		
 
