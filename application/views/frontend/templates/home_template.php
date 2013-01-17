@@ -6,6 +6,8 @@
         <!-- Title -->
         <title><?php echo isset($page_title) ? $page_title : ''; ?> | Mazengar</title>	
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>layout/images/favicon.ico" type="image/x-icon" />
 
         <!-- Style -->
         <link rel="stylesheet" href="<?php echo static_url(); ?>layout/css/frontend/style.css" type="text/css" media="screen" />
