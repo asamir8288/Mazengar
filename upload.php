@@ -1,27 +1,15 @@
 <?php 
-
-/*if (!empty($_FILES)) {
-	$tempFile = $_FILES['Filedata']['tmp_name'];
-	
-	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $_REQUEST['folder'] . '/';
-	$targetFile =  str_replace('//','/',$targetPath) . $_FILES['Filedata']['name'];
-		
-	if( move_uploaded_file($tempFile,$targetFile)){
-		echo true;
-	}else{
-		echo false;
-	}
-		
-}*/
-
 $targetFolder = $_REQUEST['folder'] . '/'; // Relative to the root
 
 //echo '<script type="text/javascript">alert("hello!");</script>'; 
 
 if (!empty($_FILES)) {
+    $better_token = md5(uniqid(rand(), true));
+    $unique_code = substr($better_token, 10);
+    
     $tempFile = $_FILES['Filedata']['tmp_name'];
     $targetPath =  $targetFolder;
-    $targetFile = 'uploads/' . $_FILES['Filedata']['name'];
+    $targetFile = 'uploads/'. $unique_code . '_' . $_FILES['Filedata']['name'];
 
 	
     // Validate the file type
@@ -31,7 +19,7 @@ if (!empty($_FILES)) {
     if (in_array($fileParts['extension'],$fileTypes)) {
         
         move_uploaded_file($tempFile,$targetFile);
-        echo $targetFolder . '/' . $_FILES['Filedata']['name'];
+        echo $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name'];
     } else {
         echo 'Invalid file type';
     }

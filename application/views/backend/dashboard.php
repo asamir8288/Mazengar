@@ -17,49 +17,37 @@
                 'uploader'  : site_url() + 'layout/js/uploadify.swf',
                 'script'    : site_url() +'upload.php',	
                 'onComplete' : function(event,queueID,fileObj,response,data) {
-					
-							
+                    var img = response.substring(response.lastIndexOf('/') + 1);  
+                    
                     if(fileObj.type.toLowerCase() == '.jpg' || fileObj.type.toLowerCase() == '.jpeg' || fileObj.type.toLowerCase() == '.png' || fileObj.type.toLowerCase() == '.gif')
                     {								  
-								
-                        parentAppend.find('object').eq(0).remove();
+			parentAppend.find('object').eq(0).remove();
                         $(".dashboard-logo").remove();
                         $(".upload-image-anchor").remove();
-																
-								
-                        $(".dashboard-logo-wrapper").append('<img class="dashboard-logo" src="'+site_url() +'uploads/' + fileObj.name + '" />');                    													
-                        $('.user-image-menu').attr('src', site_url() +'uploads/' + fileObj.name);
+                        $(".dashboard-logo-wrapper").append('<img class="dashboard-logo" src="'+site_url() +'uploads/' + img + '" />');                    													
+                        $('.user-image-menu').attr('src', site_url() +'uploads/' + img);
                         $('.upload-logo').html('<a class="upload-logo-anchor" id="offer-img" href="#">Change Logo</a> (585 px X 162 px)');
-                        
-                        $.get(site_url() + 'shop/add_logo/' + fileObj.name, function(data){});
-						
+                        $.get(site_url() + 'shop/add_logo/' + img, function(data){});
                         $(".reveal-modal-bg, .reveal-modal").hide();     
                         $('#myModal').css({'top': '150px'}) ;
-
                     }else{
                         alert('Upload Failure: Only images with the following extenstions jpg, jpeg, png, gif are allowed.');
                     }
                 },
                 'cancelImg' : 'js/cancel.png',
-					
                 'sizeLimit' : '1000000', //Max Size 1 MB
                 'folder'    : 'uploads',
                 'fileDesc': 'Only images allowed',
                 'fileExt' : '*.jpg;*.png;*.jpeg;*.gif',
                 'multi' : false,
                 'auto'      : true
-
             });
-        });
-				
-		
-				  
-        
+        });   
     });
 	
-	      $(window).load(function() {
+    $(window).load(function() {
         $('#joyRideTipContent').joyride();
-      });
+    });
 </script>
 
 <style>
@@ -68,31 +56,31 @@
 
 </style>
 
-      <!-- Walkthrough Content -->
-    <ol id="joyRideTipContent">
-	  <li  data-text="Next">
+<!-- Walkthrough Content -->
+<ol id="joyRideTipContent">
+    <li  data-text="Next">
         <h2>Welcome to Mazengar</h2>
         <p>This is a simple Walkthrough for the site.</p>
-      </li>
-	  
-      <li data-id="step1_menu" data-text="Next" class="custom">
+    </li>
+
+    <li data-id="step1_menu" data-text="Next" class="custom">
         <h2>Main Menu</h2>
         <p>Create Your Main Menu</p>
-      </li>
-      <li data-id="step2_menu"  data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+    </li>
+    <li data-id="step2_menu"  data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
         <h2>Products</h2>
         <p>Create Your Product Details!</p>
-      </li>
-      <li data-id="step3_menu"  data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+    </li>
+    <li data-id="step3_menu"  data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
         <h2>Step #3</h2>
         <p>test 123.</p>
-      </li>
-      <li data-button="Close">
+    </li>
+    <li data-button="Close">
         <h2>Done</h2>
         <p>You are now ready :)</p>
-      </li>
-    </ol>
-	
+    </li>
+</ol>
+
 <div class="dashboard-header">
 
 
