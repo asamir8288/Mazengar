@@ -68,12 +68,12 @@
 
         <div class="field-group" style="margin-top: 0px;">
             <label class="form-label-short">Product Name</label>
-            <input type="text" name="name" value="<?php echo isset($data['name']) ? $data['name'] : ''; ?>" pattern="[a-zA-Z ]{3,}" required="required" title="Must be 3 or more characters">
+            <input type="text" name="name" value="<?php echo isset($data['name']) ? $data['name'] : ''; ?>">
         </div>  
 
         <div class="field-group">
             <label class="form-label-short">Product Price</label>
-            <input type="text" name="price" value="<?php echo isset($data['price']) ? $data['price'] : ''; ?>" pattern="^((\d{0,4})|(\d+))(.\d+)?$" required="required" title="Must be a number">
+            <input type="text" name="price" value="<?php echo isset($data['price']) ? $data['price'] : ''; ?>">
         </div>				
 
         <div class="field-group">

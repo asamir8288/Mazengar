@@ -67,17 +67,17 @@
 
         <div class="field-group" style="margin-top: 0px;">
             <label class="form-label-short">Offer Name</label>
-            <input type="text" name="name" value="<?php echo isset($data['name']) ? $data['name'] : ''; ?>" pattern="[a-zA-Z ]{3,}" required="required" title="Must be 3 or more characters">
+            <input type="text" name="name" value="<?php echo isset($data['name']) ? $data['name'] : ''; ?>" />
         </div>        
 
         <div class="field-group">
             <label class="form-label-short">Before Discount</label>
-            <input type="text" value="<?php echo isset($data['price_before_discount']) ? $data['price_before_discount'] : ''; ?>" name="price_before_discount" pattern="^((\d{0,4})|(\d+))(.\d+)?$" style="width:80px;" required="required" title="Must be a number">
+            <input type="text" value="<?php echo isset($data['price_before_discount']) ? $data['price_before_discount'] : ''; ?>" name="price_before_discount" style="width:80px;" />
         </div>				
 
         <div class="field-group">
             <label class="form-label-short">After Discount</label>
-            <input type="text" name="price_after_discount" value="<?php echo isset($data['price_after_discount']) ? $data['price_after_discount'] : ''; ?>" pattern="^((\d{0,4})|(\d+))(.\d+)?$" style="width:80px;" required="required" title="Must be 3 or more characters">
+            <input type="text" name="price_after_discount" value="<?php echo isset($data['price_after_discount']) ? $data['price_after_discount'] : ''; ?>" style="width:80px;" />
         </div>				       
 
         <div class="field-group">

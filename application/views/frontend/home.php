@@ -16,11 +16,13 @@
         });
 		
         $('#banner-roller').carouFredSel({
-            auto: false,
+            auto: true,
             prev: '',
             next: '',
             pagination: "#banner-pager",
-            mousewheel: false,
+            mousewheel: true,
+            scroll	: 1500,
+            auto		: 4000,
             swipe: {
                 onMouse: true,
                 onTouch: true
