@@ -55,6 +55,19 @@ class Site extends CI_Controller {
         $this->template->render();
     }
 
+    public function privacy_policy(){
+        $this->data['page_title'] = 'Privacy Policy';
+        $this->data['menu'] = array(0, 0, 0, 0, 0);
+        $this->template->write_view('content', 'frontend/privacy_policy', $this->data);
+        $this->template->render();
+    }
+
+    public function terms_conditions(){
+        $this->data['page_title'] = 'Terms Conditions';
+        $this->data['menu'] = array(0, 0, 0, 0, 0);
+        $this->template->write_view('content', 'frontend/terms_conditions', $this->data);
+        $this->template->render();
+    }
 }
 
 ?>

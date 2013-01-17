@@ -68,7 +68,7 @@
             <div id="footer">
                 <div id="footer-copyright">
                     <br/>
-                    <p style="margin-bottom:10px;"><a href="<?php echo site_url(); ?>">Home</a> <a href="<?php echo site_url(); ?>about-us">About</a> <a href="<?php echo site_url(); ?>merchant">Merchants</a> <a href="#">Legal</a> <a href="#">Privacy Policy</a> <a href="<?php echo site_url(); ?>contact-us">Contact</a></p>
+                    <p style="margin-bottom:10px;"><a href="<?php echo site_url(); ?>">Home</a> <a href="<?php echo site_url(); ?>about-us">About</a> <a href="<?php echo site_url(); ?>merchant">Merchants</a> <a href="<?php echo site_url(); ?>terms-conditions">Legal</a> <a href="<?php echo site_url(); ?>privacy-policy">Privacy Policy</a> <a href="<?php echo site_url(); ?>contact-us">Contact</a></p>
                     <p>© 2012 Mazengar, Inc.
                     </p>				
                 </div>		
