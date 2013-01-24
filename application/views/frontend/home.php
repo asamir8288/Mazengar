@@ -73,9 +73,9 @@
 
 <div class="online-presence">
     <div style="margin-top: -10px;" class="fb-like" data-href="http://www.mazengar.com" data-send="false" data-width="350" data-show-faces="false"></div>
-    <a href="" class="fb-icon"></a>
-    <a href="" class="twitter-icon"></a>
-    <a href="" class="linkedin-icon"></a>
+    <a href="http://www.facebook.com/mazengarapp" target="_blank" class="fb-icon"></a>
+    <a href="https://twitter.com/MazengarApp" target="_blank" class="twitter-icon"></a>
+    <a href="#" target="_blank" class="linkedin-icon"></a>
 </div>
 <div class="horizontal-seperator" style="margin-top: -15px;"></div>
 
