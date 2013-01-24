@@ -167,5 +167,12 @@ class ShopOffers extends BaseShopOffers {
                         ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                         ->fetchOne();
     }
+    
+    public function hardDeleteOffers($shop_id){
+        Doctrine_Query::create()
+                ->delete('ShopOffers o')
+                ->where('o.sub_id IN (SELECT ms.id FROM ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
+                ->execute();
+    }
 
 }

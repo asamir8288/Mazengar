@@ -61,8 +61,23 @@
         <a href="#" class="selected"><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class=""><span>3</span></a></div>
 
 </div>
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=515417035153277";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="horizontal-seperator"></div>
+<div class="online-presence">
+    <div style="margin-top: -10px;" class="fb-like" data-href="http://www.mazengar.com" data-send="false" data-width="350" data-show-faces="false"></div>
+    <a href="" class="fb-icon"></a>
+    <a href="" class="twitter-icon"></a>
+    <a href="" class="linkedin-icon"></a>
+</div>
+<div class="horizontal-seperator" style="margin-top: -15px;"></div>
 
 <a id="prev2" class="prev" href="#"></a>
 <div class="list_carousel">

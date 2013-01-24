@@ -507,3 +507,40 @@ div.pagination a {
 div.pagination a span {
     display: none;
 }
+
+div.online-presence{
+    position: relative;
+    width: 460px;
+    float: right;
+    top: -28px;
+}
+
+div.online-presence .fb-icon{
+    background-image: URL(../../images/frontend/facebook.png);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}
+
+div.online-presence .twitter-icon{
+    background-image: URL(../../images/frontend/twitter.png);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}
+
+div.online-presence .linkedin-icon{
+    background-image: URL(../../images/frontend/linkedin.png);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}

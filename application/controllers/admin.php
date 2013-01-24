@@ -21,6 +21,12 @@ class Admin extends CI_Controller {
         
         $p = new ShopProducts();
         $p->hardDeleteProducts(21);
+        
+        $po = new ShopOfferComponents();
+        $po->hardDeleteOffersComponents(21);
+        
+        $o = new ShopOffers();
+        $o->hardDeleteOffers(21);
     }
 }
 
