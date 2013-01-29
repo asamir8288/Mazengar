@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){                
-        if($('.product_id').val() != ''){
+        if($('.product_id').val() != ''){            
             $.get(site_url() + 'product/get_menu_subs/' + $('.product_id').val(), function(data){
                 if(data.length > 3){
                     $('.menu_subs').append(data);
@@ -15,7 +15,7 @@
                     $('.shopcat').hide();
                 }            
             });
-        }else{
+        }else{            
             $('.shopcategory').attr('name', 'sub_id_unuse');
             $('.shopcategory').last().attr('name', 'sub_id');
         }
@@ -28,8 +28,8 @@
                     $('.menu_subs').append(data);
                     $('.shopcategory').attr('name', 'sub_id_unuse');                    
                 }                
-            });
-            $('.shopcategory').last().attr('name', 'sub_id');
+                $('.shopcategory').last().attr('name', 'sub_id');
+            });            
         });
     });
 </script>
