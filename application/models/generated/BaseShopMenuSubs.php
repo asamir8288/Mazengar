@@ -75,9 +75,9 @@ abstract class BaseShopMenuSubs extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
-        $this->hasColumn('img', 'string', 45, array(
+        $this->hasColumn('img', 'string', 255, array(
              'type' => 'string',
-             'length' => 45,
+             'length' => 255,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,

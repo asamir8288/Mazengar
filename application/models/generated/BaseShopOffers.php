@@ -111,9 +111,9 @@ abstract class BaseShopOffers extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn('main_pic', 'string', 45, array(
+        $this->hasColumn('main_pic', 'string', 255, array(
              'type' => 'string',
-             'length' => 45,
+             'length' => 255,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
