@@ -110,7 +110,7 @@ class ShopMenuSubsTable extends Doctrine_Table {
         $q = new Doctrine_RawSql();
         $array = self::buildQuery($q, $shop_id);
         $q->addFrom('
-                    INNER JOIN shop_products sp ON s' . $array['max_level'] . '.related_to=sp.sub_id
+                    INNER JOIN shop_products sp ON s' . $array['max_level'] . '.id=sp.sub_id
                 LEFT JOIN shop_product_components pc ON pc.product_id=sp.id 
                 INNER JOIN lookup_currencies c ON c.id=sp.currency_id');
         $q->addComponent('sp', 's'.$array['max_level'].'.ShopProducts sp');
