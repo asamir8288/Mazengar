@@ -28,8 +28,8 @@
                     $('.menu_subs').append(data);
                     $('.shopcategory').attr('name', 'sub_id_unuse');                    
                 }                
-            });
-            $('.shopcategory').last().attr('name', 'sub_id');
+                $('.shopcategory').last().attr('name', 'sub_id');
+            });            
         });
     });
 </script>
