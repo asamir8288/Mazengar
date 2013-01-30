@@ -30,7 +30,7 @@ class Product extends CI_Controller {
         $this->data['submit_url'] = site_url('product');
 
         if ($this->input->post('submit')) {
-            $productData = $_POST;
+            $productData = $_POST;           
             $p = new ShopProducts();
             $p->addProduct($productData);
 

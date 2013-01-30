@@ -170,11 +170,11 @@
                         ?>
 						<li class="drag-list-item">
                         <div class="product-item-wrapper">				
-                            <textarea class="products-textarea" name="addional_desc[]" ><?php echo $media['item']; ?></textarea>
+                            <textarea class="products-textarea" name="text-order[<?php echo $media['product_order']; ?>]" ><?php echo $media['item']; ?></textarea>
                             <ul class="product-item-action-list">				
                                 <li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li>                                
                                 <li class="product-item-icon delete-product-icon"><a >Delete</a></li>
-								<li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>
+				<li title="Drag Me" class="product-item-icon move-product-icon"><a>Move</a></li>
                             </ul>
                             <div class="caption-area-wrapper">
                                 <input type="text" placeholder="Caption" maxlength="70"/>
@@ -191,7 +191,7 @@
                         <div class="product-item-wrapper">	
                             <div class="products-image-upload" style="">
                                 <div class="uploaded-img-wrapper">
-                                    <input type="hidden" value="<?php echo $media['item']; ?>" name="additional_imgs[]">
+                                    <input type="hidden" value="<?php echo $media['item']; ?>" name="img-order[<?php echo $media['product_order']; ?>]">
                                     <img src="<?php echo static_url(); ?>uploads/<?php echo $media['item']; ?>">
                                 </div>
                             </div>
@@ -214,7 +214,7 @@
                         <div class="product-item-wrapper">				
                             <div class="products-video-upload" style="">
                                 <a class="large-btn-products gray-bg-products  upload-video-btn" style="display: none;">YOUTUBE LINK</a>
-                                <input type="hidden" name="additional_vedio[]" value="<?php echo $media['item']; ?>">
+                                <input type="hidden" name="video-order[<?php echo $media['product_order']; ?>]" value="<?php echo $media['item']; ?>">
                                 <object class="youtube-video-frame" width="470" height="345">
                                     <param name="movie" value="<?php echo $media['item']; ?>">
                                     <param name="allowFullScreen" value="true">

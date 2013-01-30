@@ -89,28 +89,33 @@ class ShopProducts extends BaseShopProducts {
 
     private function addProductComponents(array $productData, $product_id) {
         $spc = new ShopProductComponents();
-        if (isset($productData['addional_desc'])) {
-            foreach ($productData['addional_desc'] as $item) {
+        if (isset($productData['text-order'])) {
+            foreach ($productData['text-order'] as $key => $item) {
                 $componentsdata['product_id'] = $product_id;
+                $componentsdata['product_order'] = $key;
                 $componentsdata['item'] = $item;
                 $componentsdata['type'] = 'text';
 
                 $spc->addProdComponents($componentsdata);
             }
         }
-        if (isset($productData['additional_imgs'])) {
-            foreach ($productData['additional_imgs'] as $item) {
+        if (isset($productData['img-order'])) {
+            foreach ($productData['img-order'] as $key => $item) {
+                $tokens = explode('/', $item);
+                $img = $tokens[sizeof($tokens) - 1];
                 $componentsdata['product_id'] = $product_id;
-                $componentsdata['item'] = $item;
+                $componentsdata['item'] = $img;
+                $componentsdata['product_order'] = $key;
                 $componentsdata['type'] = 'image';
 
                 $spc->addProdComponents($componentsdata);
             }
         }
-        if (isset($productData['additional_vedio'])) {
-            foreach ($productData['additional_vedio'] as $item) {
+        if (isset($productData['video-order'])) {
+            foreach ($productData['video-order'] as $key => $item) {
                 $componentsdata['product_id'] = $product_id;
                 $componentsdata['item'] = $item;
+                $componentsdata['product_order'] = $key;
                 $componentsdata['type'] = 'vedio';
 
                 $spc->addProdComponents($componentsdata);
@@ -166,14 +171,16 @@ class ShopProducts extends BaseShopProducts {
                         ->select('p.*, pc.*')
                         ->from('ShopProducts p, p.ShopProductComponents pc')
                         ->where('p.id=?', $id)
+                        ->orderBy('pc.product_order ASC')
                         ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                         ->fetchOne();
     }
 
-    public function hardDeleteProducts($shop_id){
+    public function hardDeleteProducts($shop_id) {
         Doctrine_Query::create()
                 ->delete('ShopProducts p')
-                ->where('p.sub_id IN (SELECT ms.id FROM ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
+                ->where('p.sub_id IN (SELECT ms.id FROM ShopMenuSubs ms WHERE ms.shop_id=' . $shop_id . ')')
                 ->execute();
     }
+
 }

@@ -43,6 +43,15 @@ abstract class BaseShopProductComponents extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
+        $this->hasColumn('product_order', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             ));
         $this->hasColumn('item', 'string', null, array(
              'type' => 'string',
              'fixed' => false,
