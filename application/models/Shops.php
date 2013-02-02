@@ -49,8 +49,8 @@ class Shops extends BaseShops
     
     public function getOne($id){
         return Doctrine_Query::create()
-                ->select('s.*')
-                ->from('Shops s')
+                ->select('s.*, op.*')
+                ->from('Shops s, s.ShopOnlinePresence op')
                 ->where('s.id=?', $id)
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->fetchOne();
