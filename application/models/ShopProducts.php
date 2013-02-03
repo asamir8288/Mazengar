@@ -88,18 +88,25 @@ class ShopProducts extends BaseShopProducts {
     }
 
     private function addProductComponents(array $productData, $product_id) {
-        $spc = new ShopProductComponents();
+        $spc = new ShopProductComponents();     
         if (isset($productData['text-order'])) {
+            $i = 0;
             foreach ($productData['text-order'] as $key => $item) {
                 $componentsdata['product_id'] = $product_id;
                 $componentsdata['product_order'] = $key;
                 $componentsdata['item'] = $item;
                 $componentsdata['type'] = 'text';
-
+                if(isset($productData['text_caption'][$i])){
+                    $componentsdata['caption'] = $productData['text_caption'][$i];
+                }else{
+                    $componentsdata['caption'] = '';
+                }
                 $spc->addProdComponents($componentsdata);
+                $i++;
             }
         }
         if (isset($productData['img-order'])) {
+            $i = 0;
             foreach ($productData['img-order'] as $key => $item) {
                 $tokens = explode('/', $item);
                 $img = $tokens[sizeof($tokens) - 1];
@@ -107,18 +114,32 @@ class ShopProducts extends BaseShopProducts {
                 $componentsdata['item'] = $img;
                 $componentsdata['product_order'] = $key;
                 $componentsdata['type'] = 'image';
+                if(isset($productData['image_caption'][$i])){
+                    $componentsdata['caption'] = $productData['image_caption'][$i];
+                }else{
+                    $componentsdata['caption'] = '';
+                }
 
                 $spc->addProdComponents($componentsdata);
+                $i ++;
             }
         }
         if (isset($productData['video-order'])) {
+            $i = 0;
             foreach ($productData['video-order'] as $key => $item) {
                 $componentsdata['product_id'] = $product_id;
                 $componentsdata['item'] = $item;
                 $componentsdata['product_order'] = $key;
                 $componentsdata['type'] = 'vedio';
+                if(isset($productData['video_caption'][$i])){
+                    $componentsdata['caption'] = $productData['video_caption'][$i];
+                }else{
+                    $componentsdata['caption'] = '';
+                }
+                
 
                 $spc->addProdComponents($componentsdata);
+                $i ++;
             }
         }
     }

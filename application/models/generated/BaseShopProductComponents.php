@@ -69,6 +69,15 @@ abstract class BaseShopProductComponents extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
+        $this->hasColumn('caption', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
              'fixed' => false,

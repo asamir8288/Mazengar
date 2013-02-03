@@ -30,7 +30,8 @@ class Product extends CI_Controller {
         $this->data['submit_url'] = site_url('product');
 
         if ($this->input->post('submit')) {
-            $productData = $_POST;           
+            $productData = $_POST;         
+            
             $p = new ShopProducts();
             $p->addProduct($productData);
 
@@ -159,21 +160,19 @@ class Product extends CI_Controller {
         $this->template->add_js('layout/js/jquery.tools.min.js?' . $this->config->item('static_version'));
         $this->template->add_js('layout/js/formvalidation.js?' . $this->config->item('static_version'));       
         
-
         $this->template->add_js('layout/js/jquery-ui.js?' . $this->config->item('static_version'));
         $this->template->add_js('layout/js/swfobject.js?' . $this->config->item('static_version'));
         $this->template->add_js('layout/js/jquery.uploadify.v2.1.4.js?' . $this->config->item('static_version'));
         $this->template->add_js('layout/js/jquery.livequery.js?' . $this->config->item('static_version'));
-		$this->template->add_js('layout/js/jquery.dragsort-0.5.1.js?' . $this->config->item('static_version'));
-		$this->template->add_js('layout/js/jquery.reveal.js?' . $this->config->item('static_version'));
-		$this->template->add_js('layout/js/pages/products_offers.js?' . $this->config->item('static_version'));
+        $this->template->add_js('layout/js/jquery.dragsort-0.5.1.js?' . $this->config->item('static_version'));
+        $this->template->add_js('layout/js/jquery.reveal.js?' . $this->config->item('static_version'));
+        $this->template->add_js('layout/js/pages/products_offers.js?' . $this->config->item('static_version'));
 
         $this->template->add_css('layout/css/form.css?' . $this->config->item('static_version'));
         $this->template->add_css('layout/css/jquery-ui.css?' . $this->config->item('static_version'));
         $this->template->add_css('layout/css/uploadify.css?' . $this->config->item('static_version'));
         $this->template->add_css('layout/css/products_offers.css?' . $this->config->item('static_version'));
-		$this->template->add_css('layout/css/reveal.css?' . $this->config->item('static_version'));
-		
+	$this->template->add_css('layout/css/reveal.css?' . $this->config->item('static_version'));		
 
         $this->template->write_view('content', 'backend/product', $this->data);
         $this->template->render();

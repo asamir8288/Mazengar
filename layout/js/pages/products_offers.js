@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     $('.add-text-icon').live("click",function(){
         $(".no-items-yet").hide();
-        $(".draggable-list").append('<li class="drag-list-item"><div class="product-item-wrapper"><textarea class="products-textarea"></textarea><ul class="product-item-action-list">				<li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li><li class="product-item-icon delete-product-icon"><a>Delete</a></li><li title="Drag Me" class="product-item-icon move-product-icon"><a >Move</a></li>					</ul>				<div class="caption-area-wrapper"><input type="text" placeholder="Caption" maxlength="70"/></div>	</div></li>');                    					
+        $(".draggable-list").append('<li class="drag-list-item"><div class="product-item-wrapper"><textarea class="products-textarea"></textarea><ul class="product-item-action-list">				<li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li><li class="product-item-icon delete-product-icon"><a>Delete</a></li><li title="Drag Me" class="product-item-icon move-product-icon"><a >Move</a></li>					</ul>				<div class="caption-area-wrapper"><input type="text" placeholder="Caption" name="text_caption[]" maxlength="70"/></div>	</div></li>');                    					
 		
         var scrollOffset = 300;
         if($('.product-item-wrapper').size() < 2){
@@ -63,7 +63,7 @@ $(document).ready(function(){
     $('.add-image-icon').live("click",function(){			
         $(".no-items-yet").hide();		
         var imgID = $('.products-image-upload').size()+1;        
-        $(".draggable-list").append('<li class="drag-list-item"><div class="product-item-wrapper"><div class="products-image-upload"><a class="large-btn-products gray-bg-products upload-img-btn" id="img_btn_'+imgID+'">UPLOAD IMAGE</a>			</div><ul class="product-item-action-list">				<li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li><li class="product-item-icon delete-product-icon"><a>Delete</a></li>	<li title="Drag Me" class="product-item-icon move-product-icon"><a >Move</a></li>						</ul><div class="caption-area-wrapper"><input type="text" placeholder="Caption" maxlength="70"></div>				</div></li>');                    					
+        $(".draggable-list").append('<li class="drag-list-item"><div class="product-item-wrapper"><div class="products-image-upload"><a class="large-btn-products gray-bg-products upload-img-btn" id="img_btn_'+imgID+'">UPLOAD IMAGE</a>			</div><ul class="product-item-action-list">				<li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li><li class="product-item-icon delete-product-icon"><a>Delete</a></li>	<li title="Drag Me" class="product-item-icon move-product-icon"><a >Move</a></li>						</ul><div class="caption-area-wrapper"><input type="text" name="image_caption[]" placeholder="Caption" maxlength="70"></div>				</div></li>');                    					
 			
         var scrollOffset = 300;
         if($('.product-item-wrapper').size() < 2){
@@ -82,7 +82,7 @@ $(document).ready(function(){
 
     $('.add-video-icon').live("click",function(){			
         $(".no-items-yet").hide();					
-        $(".draggable-list").append('<li class="drag-list-item"><div class="product-item-wrapper"><div class="products-video-upload"><a class="large-btn-products gray-bg-products  upload-video-btn">YOUTUBE LINK</a>			</div><ul class="product-item-action-list">				<li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li><li class="product-item-icon delete-product-icon"><a>Delete</a></li><li title="Drag Me" class="product-item-icon move-product-icon"><a >Move</a></li>						</ul><div class="caption-area-wrapper"><input type="text" placeholder="Caption" maxlength="70"></div></div></li>');
+        $(".draggable-list").append('<li class="drag-list-item"><div class="product-item-wrapper"><div class="products-video-upload"><a class="large-btn-products gray-bg-products  upload-video-btn">YOUTUBE LINK</a>			</div><ul class="product-item-action-list">				<li class="product-item-icon add-product-caption-icon"><a>Add Caption</a></li><li class="product-item-icon delete-product-icon"><a>Delete</a></li><li title="Drag Me" class="product-item-icon move-product-icon"><a >Move</a></li>						</ul><div class="caption-area-wrapper"><input type="text" placeholder="Caption" name="video_caption[]" maxlength="70"></div></div></li>');
         
         var scrollOffset = 300;
         if($('.product-item-wrapper').size() < 2){

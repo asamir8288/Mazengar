@@ -18,6 +18,7 @@ class ShopProductComponents extends BaseShopProductComponents
         $pc->item = $componentsdata['item'];
         $pc->product_order = $componentsdata['product_order'];
         $pc->type = $componentsdata['type'];
+        $pc->caption = $componentsdata['caption'];
         $pc->created_at = date('ymdHis');
         $pc->save();
     }
