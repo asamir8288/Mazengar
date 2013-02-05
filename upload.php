@@ -18,8 +18,9 @@ if (!empty($_FILES)) {
     
     if (in_array($fileParts['extension'],$fileTypes)) {
         
-        move_uploaded_file($tempFile,$targetFile);
+        move_uploaded_file($tempFile,$targetFile);        
         $new_path_ = $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name'];
+        chmod($new_path_,0777);
         $img = file_get_contents($new_path_);
         $im = imagecreatefromstring($img);
         $width = imagesx($im);
