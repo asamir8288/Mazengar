@@ -30,10 +30,29 @@ if (!empty($_FILES)) {
         $new_diminsions = get_image_sizes($new_path_, $newwidth, $newheight);
         
         $thumb = imagecreatetruecolor($new_diminsions[0], $new_diminsions[1]);
+        
+        if ($fileParts['extension'] == 'png' || $fileParts['extension'] == 'gif') {            
+            imagealphablending($thumb, false);
+            imagesavealpha($thumb, true);
+            $transparent = imagecolorallocatealpha($thumb, 255, 255, 255, 127);
+            imagefilledrectangle($thumb, 0, 0, $new_diminsions[0], $new_diminsions[1], $transparent);
+        }   
+        
         imagecopyresampled($thumb, $im, 0, 0, 0, 0, $new_diminsions[0], $new_diminsions[1], $width, $height);  
         
-//        imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-        imagejpeg($thumb, $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name']); //save image as jpg
+
+        switch ($fileParts['extension']) {
+            case "jpeg":
+                imagejpeg($thumb, $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name']); //save image as jpg
+                break;
+            case "png":
+                imagepng($thumb, $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name']); //save image as jpg                
+                break;
+            case "gif":
+                imagepng($thumb, $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name']); //save image as jpg
+                break;
+        }
+                
         echo $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name'];
     } else {
         echo 'Invalid file type';
