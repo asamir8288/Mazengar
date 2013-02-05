@@ -19,9 +19,51 @@ if (!empty($_FILES)) {
     if (in_array($fileParts['extension'],$fileTypes)) {
         
         move_uploaded_file($tempFile,$targetFile);
+        $new_path_ = $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name'];
+        $img = file_get_contents($new_path_);
+        $im = imagecreatefromstring($img);
+        $width = imagesx($im);
+        $height = imagesy($im);
+        $newwidth = '500';
+        $newheight = '500';
+        
+        $new_diminsions = get_image_sizes($new_path_, $newwidth, $newheight);
+        
+        $thumb = imagecreatetruecolor($new_diminsions[0], $new_diminsions[1]);
+        imagecopyresampled($thumb, $im, 0, 0, 0, 0, $new_diminsions[0], $new_diminsions[1], $width, $height);  
+        
+//        imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        imagejpeg($thumb, $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name']); //save image as jpg
         echo $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name'];
     } else {
         echo 'Invalid file type';
     }
 } 
+
+function get_image_sizes($sourceImageFilePath, $maxResizeWidth, $maxResizeHeight) {
+
+    // Get width and height of original image
+    $size = getimagesize($sourceImageFilePath);
+    if ($size === FALSE)
+        return FALSE; // Error
+    $origWidth = $size[0];
+    $origHeight = $size[1];
+
+    // Change dimensions to fit maximum width and height
+    $resizedWidth = $origWidth;
+    $resizedHeight = $origHeight;
+    if ($resizedWidth > $maxResizeWidth) {
+        $aspectRatio = $maxResizeWidth / $resizedWidth;
+        $resizedWidth = round($aspectRatio * $resizedWidth);
+        $resizedHeight = round($aspectRatio * $resizedHeight);
+    }
+    if ($resizedHeight > $maxResizeHeight) {
+        $aspectRatio = $maxResizeHeight / $resizedHeight;
+        $resizedWidth = round($aspectRatio * $resizedWidth);
+        $resizedHeight = round($aspectRatio * $resizedHeight);
+    }
+
+    // Return an array with the original and resized dimensions
+    return array($resizedWidth, $resizedHeight);
+}
 ?>
