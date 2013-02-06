@@ -63,8 +63,8 @@ class ShopMenuSubsTable extends Doctrine_Table {
             $menu->related_to = $parent_id;
         }
         $menu->level = $level;
-//        $menu->created_at=date('Y-m-d H:i:s');
-//        $menu->updated_at=date('Y-m-d H:i:s');
+        $menu->created_at=date('ymdHis');
+        $menu->updated_at=date('ymdHis');
 
         $menu->save();
         return $menu->id;

@@ -20,7 +20,6 @@ if (!empty($_FILES)) {
         
         copy($tempFile,$targetFile);        
         $new_path_ = $targetFolder . '/' . $unique_code . '_' . $_FILES['Filedata']['name'];
-        chmod($new_path_ ,0777);
         $img = file_get_contents($new_path_);
         $im = imagecreatefromstring($img);
         $width = imagesx($im);
