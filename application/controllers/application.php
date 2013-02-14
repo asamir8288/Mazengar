@@ -73,14 +73,23 @@ class Application extends CI_Controller {
     }
     
     public function registration(){
-        $json = $_POST['data'];
+        $json = $_POST;
         $decoded = json_decode($json, TRUE);
         
-        echo $decoded;
+        $data = array();
+        $data['name'] = $decoded['full_name'];
+        $data['email'] = $decoded['email'];
+        $data['password'] = $decoded['password'];
+        $data['phone'] = $decoded['phone'];
+        
+        $r = new MobileRegistrations();
+        $register = $r->addRegistration($data);
+        
+        echo json_encode($register);
     }
     
     public function login(){        
-        $json = $_POST['data'];
+        $json = $_POST;
         $decoded = json_decode($json, TRUE);
         
         $r = new MobileRegistrations();

@@ -17,8 +17,11 @@ class MobileRegistrations extends BaseMobileRegistrations {
         $r->name = $data['name'];
         $r->email = $data['email'];
         $r->password = $data['password'];
+        $r->phone = $data['phone'];
         $r->created_at = date('ymdHis');
         $r->save();
+        
+        return true;
     }
 
     public function isUserExist($email, $password) {

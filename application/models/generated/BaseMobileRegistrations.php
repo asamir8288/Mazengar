@@ -59,6 +59,15 @@ abstract class BaseMobileRegistrations extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
+        $this->hasColumn('phone', 'string', 25, array(
+             'type' => 'string',
+             'length' => 25,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
              'fixed' => false,
