@@ -88,9 +88,9 @@ abstract class BaseShops extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn('logo', 'string', 255, array(
+        $this->hasColumn('logo', 'string', 45, array(
              'type' => 'string',
-             'length' => 255,
+             'length' => 45,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,

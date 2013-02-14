@@ -23,6 +23,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopBranches', 'default');
  * @property string $website
  * @property string $main_img
  * @property integer $is_active
+ * @property integer $branch_order
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $deleted
@@ -189,7 +190,7 @@ abstract class BaseShopBranches extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(

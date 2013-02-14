@@ -17,6 +17,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopOffers', 'default');
  * @property string $description
  * @property integer $availability
  * @property string $main_pic
+ * @property integer $offer_order
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $deleted
@@ -111,9 +112,9 @@ abstract class BaseShopOffers extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn('main_pic', 'string', 255, array(
+        $this->hasColumn('main_pic', 'string', 45, array(
              'type' => 'string',
-             'length' => 255,
+             'length' => 45,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
@@ -126,7 +127,7 @@ abstract class BaseShopOffers extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(

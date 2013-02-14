@@ -11,6 +11,8 @@ Doctrine_Manager::getInstance()->bindComponent('ShopProductComponents', 'default
  * @property integer $product_id
  * @property string $item
  * @property string $type
+ * @property integer $product_order
+ * @property string $caption
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $deleted
@@ -43,15 +45,6 @@ abstract class BaseShopProductComponents extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn('product_order', 'integer', 4, array(
-             'type' => 'integer',
-             'length' => 4,
-             'fixed' => false,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => false,
-             'autoincrement' => false,
-             ));
         $this->hasColumn('item', 'string', null, array(
              'type' => 'string',
              'fixed' => false,
@@ -69,13 +62,23 @@ abstract class BaseShopProductComponents extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
+        $this->hasColumn('product_order', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
         $this->hasColumn('caption', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(

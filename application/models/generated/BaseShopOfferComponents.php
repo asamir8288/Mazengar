@@ -11,6 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopOfferComponents', 'default')
  * @property integer $offer_id
  * @property string $item
  * @property string $type
+ * @property integer $offer_order
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $deleted
@@ -58,6 +59,16 @@ abstract class BaseShopOfferComponents extends Doctrine_Record
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('offer_order', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(

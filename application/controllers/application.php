@@ -71,6 +71,23 @@ class Application extends CI_Controller {
         $data = ShopAboutUsTable::getAboutUsItems($shop_id);        
         echo json_encode($data);
     }
+    
+    public function registration(){
+        $json = $_POST['data'];
+        $decoded = json_decode($json, TRUE);
+        
+        echo $decoded;
+    }
+    
+    public function login(){        
+        $json = $_POST['data'];
+        $decoded = json_decode($json, TRUE);
+        
+        $r = new MobileRegistrations();
+        $logged_in = $r->isUserExist($decoded['email'], $decoded['password']);
+        
+        echo json_encode($logged_in);
+    }
 }
 
 ?>

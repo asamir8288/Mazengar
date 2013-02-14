@@ -12,6 +12,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopAlbums', 'default');
  * @property integer $template_id
  * @property string $name
  * @property string $img
+ * @property integer $album_order
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $published
@@ -80,7 +81,7 @@ abstract class BaseShopAlbums extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
