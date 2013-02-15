@@ -122,6 +122,10 @@ class Application extends CI_Controller {
         
         echo json_encode(true);
     }
+    
+    public function test(){
+        send_email('ahmed@dominosmedia.com', 'Mazengar Email', 'hello');
+    }
 }
 
 ?>
