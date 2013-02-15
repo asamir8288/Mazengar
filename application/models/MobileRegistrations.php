@@ -26,16 +26,19 @@ class MobileRegistrations extends BaseMobileRegistrations {
 
     public function isUserExist($email, $password) {
         $q = Doctrine_Query::create()
-                ->select('count(r.id) as is_exist')
+                ->select('count(r.id) as is_exist, r.*')
                 ->from('MobileRegistrations r')
                 ->where('r.email =?', trim($email))
                 ->andWhere('r.password=?', trim($password))
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->fetchOne();
 
-        if ($q['is_exist'] > 0)
+        if ($q['is_exist'] > 0){
             return true;
-        return false;
+        }else{
+            return false;
+        }
+        
     }
     
     public function isEmailExist($email) {
