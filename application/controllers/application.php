@@ -73,7 +73,7 @@ class Application extends CI_Controller {
     }
     
     public function registration(){
-        $json = stripslashes($_POST['json']);
+        $json = file_get_contents('php://input');
         $decoded = json_decode($json, TRUE);
         
         $data = array();
@@ -83,9 +83,13 @@ class Application extends CI_Controller {
         $data['phone'] = $decoded['phone'];
         
         $r = new MobileRegistrations();
-        $register = $r->addRegistration($data);
+        $response = false;
+        if(!$r->isEmailExist($email)){
+            $register = $r->addRegistration($data);
+            $response = $register;
+        }
         
-        echo json_encode($register);
+        echo json_encode($response);              
     }
     
     public function login(){        
