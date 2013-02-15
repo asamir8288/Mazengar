@@ -18,6 +18,6 @@ class UserProductsBasket extends BaseUserProductsBasket
         $b->product_id = $data['product_id'];
         $b->quantity = $data['quantity'];
         $b->created_at = date('ymdHis');
-        $b-save();
+        $b->save();
     }
 }

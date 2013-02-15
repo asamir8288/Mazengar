@@ -108,6 +108,8 @@ class Application extends CI_Controller {
        
         $r = new MobileRegistrations();
         $user_id = $r->getIdByEmail($decoded['email']);                
+
+        $b = new UserProductsBasket();
         
         foreach($decoded['basket_items'] as $items){
             $data = array();
@@ -115,7 +117,6 @@ class Application extends CI_Controller {
             $data['product_id'] = $items['product_id'];
             $data['quantity'] = $items['amount'];
             
-            $b = new UserProductsBasket();
             $b->addUserProductToBasket($data);
         }
         
