@@ -53,5 +53,15 @@ class MobileRegistrations extends BaseMobileRegistrations {
             return true;
         return false;
     }
+    
+     public function getIdByEmail($email) {
+        $q = Doctrine_Query::create()
+                ->select('r.id')
+                ->from('MobileRegistrations r')
+                ->where('r.email =?', trim($email))
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+        return $q['id'];
+    }
 
 }

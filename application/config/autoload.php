@@ -68,7 +68,7 @@ $autoload['libraries'] = array('template', 'session');
 | (file, language, cookie, text, url, form) ...
 */
 
-$autoload['helper'] = array('doctrine', 'url', 'form', 'validator', 'frm', 'language', 'localization', 'upload', 'email_sender', 'global', 'menu');
+$autoload['helper'] = array('doctrine', 'url', 'form', 'validator', 'frm', 'language', 'localization', 'upload', 'notification', 'global', 'menu');
 
 
 /*

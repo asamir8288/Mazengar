@@ -25,6 +25,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopProducts', 'default');
  * @property ShopMenuSubs $ShopMenuSubs
  * @property ShopCategoryFilters $ShopCategoryFilters
  * @property Doctrine_Collection $ShopProductComponents
+ * @property Doctrine_Collection $UserProductsBasket
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -178,6 +179,10 @@ abstract class BaseShopProducts extends Doctrine_Record
              'foreign' => 'id'));
 
         $this->hasMany('ShopProductComponents', array(
+             'local' => 'id',
+             'foreign' => 'product_id'));
+
+        $this->hasMany('UserProductsBasket', array(
              'local' => 'id',
              'foreign' => 'product_id'));
     }

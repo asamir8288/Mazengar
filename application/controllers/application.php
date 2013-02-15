@@ -101,6 +101,26 @@ class Application extends CI_Controller {
         
         echo json_encode($logged_in);
     }
+    
+    public function basket_items(){
+        $json = file_get_contents('php://input');
+        $decoded = json_decode($json, TRUE);
+       
+        $r = new MobileRegistrations();
+        $user_id = $r->getIdByEmail($decoded['email']);                
+        
+        foreach($decoded['basket_items'] as $items){
+            $data = array();
+            $data['user_id'] = $user_id;
+            $data['product_id'] = $items['product_id'];
+            $data['quantity'] = $items['amount'];
+            
+            $b = new UserProductsBasket();
+            $b->addUserProductToBasket();
+        }
+        
+        echo json_encode(true);
+    }
 }
 
 ?>
