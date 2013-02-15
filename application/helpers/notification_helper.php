@@ -30,8 +30,6 @@ function send_email($email, $subject, $body, $sender = 'Mazengar', $template = '
     $data['subject'] = $subject;
     $data['body'] = $body;
     $data['email'] = $email;
-    
-    var_dump($email);exit;
 
     $CI->email->from($from, $sender);
     $CI->email->to($email);
