@@ -84,7 +84,7 @@ class Application extends CI_Controller {
         
         $r = new MobileRegistrations();
         $response = false;
-        if(!$r->isEmailExist($email)){
+        if(!$r->isEmailExist($decoded['email'])){
             $register = $r->addRegistration($data);
             $response = $register;
         }
@@ -93,7 +93,7 @@ class Application extends CI_Controller {
     }
     
     public function login(){        
-        $json = $_POST;
+        $json = file_get_contents('php://input');
         $decoded = json_decode($json, TRUE);
         
         $r = new MobileRegistrations();
