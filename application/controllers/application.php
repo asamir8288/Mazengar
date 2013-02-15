@@ -116,7 +116,7 @@ class Application extends CI_Controller {
             $data['quantity'] = $items['amount'];
             
             $b = new UserProductsBasket();
-            $b->addUserProductToBasket();
+            $b->addUserProductToBasket($data);
         }
         
         echo json_encode(true);
