@@ -12,7 +12,7 @@ function outlookfilter($text) {
     return $text;
 }
 
-function send_email($email, $subject, $body, $sender = 'Mazengar', $template = 'emails/notification', $from = 'system@mazengar.com', $reply_to = '', $reply_to_name = '', $type = 'html') {
+function send_email($email, $subject, $body, $sender = 'Mazengar', $template = 'emails/notification', $from = 'ahmed@dominosmedia.com', $reply_to = '', $reply_to_name = '', $type = 'html') {
     $CI = & get_instance();
 
     $CI->load->library('email');
