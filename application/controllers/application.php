@@ -73,7 +73,7 @@ class Application extends CI_Controller {
     }
     
     public function registration(){
-        $json = stripslashes($_POST);
+        $json = stripslashes($_POST['json']);
         $decoded = json_decode($json, TRUE);
         
         $data = array();
