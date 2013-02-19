@@ -16,12 +16,13 @@
 <div style="clear: both;"></div>
 <div style="margin-top:  30px;">
     <div style="float: left;width: 365px;color: #404040;font-family: calibri, arial, sans-serif;font-size: 17px;">
-        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Dominos Media, LLC</strong> <br />
+        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Egypt, Main Branch</strong> <br />
         14 Mosadak St. - Flat 83<br />
         Dokki - Giza - Egypt<br />
         <br />
-        Tel. +20 11 41 0000 87<br />
-        <a href="mailto:mazengar@dominosmedia.com">mazengar@dominosmedia.com</a><br />
+        Tel. +20 2 333 77 564<br />
+        Mob. +20 11 41 0000 87<br />
+        Email: <a href="mailto:mazengar@dominosmedia.com">mazengar@dominosmedia.com</a><br />
 
 
 <!--        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Qatar, Sales Branch</strong> <br />
