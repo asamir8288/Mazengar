@@ -32,14 +32,14 @@
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
         <div class="h-line"></div>-->
 <br /><br /><br />
-        <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;">General Manager</strong> <br />         
+        <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;color: #888888;">General Manager</strong> <br />         
         Amro Algarhy<br />
         <a href="mailto:amro@DominosMedia.com">amro@DominosMedia.com</a><br />
         +20 100 373 8818
         <br />
         <div class="h-line"></div>
 
-        <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;">Marketing & Sales Manager</strong> <br />         
+        <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;color: #888888;">Marketing & Sales Manager</strong> <br />         
         Serah Fouad<br />
         <a href="mailto:serah@DominosMedia.com">serah@DominosMedia.com</a><br />
         +20 11 41 0000 86
