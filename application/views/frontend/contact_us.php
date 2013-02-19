@@ -24,13 +24,13 @@
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
         <div class="h-line"></div>
 
-        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Qatar, Sales Branch</strong> <br />
+<!--        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Qatar, Sales Branch</strong> <br />
         14 Mosadak St. - Flat 83<br />
         Dokki - Giza - Egypt<br />
         <br />
         Tel. +20 100 373 8818<br />
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
-        <div class="h-line"></div>
+        <div class="h-line"></div>-->
 
         <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">General Manager</strong> <br />         
         Amro Algarhy<br />
