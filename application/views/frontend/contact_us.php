@@ -21,7 +21,7 @@
         Dokki - Giza - Egypt<br />
         <br />
         Tel. +20 100 373 8818<br />
-        <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
+        <a href="mailto:mazengar@dominosmedia.com">mazengar@dominosmedia.com</a><br />
 
 
 <!--        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Qatar, Sales Branch</strong> <br />
