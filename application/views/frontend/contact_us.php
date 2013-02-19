@@ -20,7 +20,7 @@
         14 Mosadak St. - Flat 83<br />
         Dokki - Giza - Egypt<br />
         <br />
-        Tel. +20 100 373 8818<br />
+        Tel. +20 11 41 0000 87<br />
         <a href="mailto:mazengar@dominosmedia.com">mazengar@dominosmedia.com</a><br />
 
 
