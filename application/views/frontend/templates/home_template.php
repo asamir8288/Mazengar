@@ -36,7 +36,7 @@
 
                         <li class="menu-header-item <?php echo ($menu[1]) ? 'about-active' : 'about'; ?>"><a href="<?php echo site_url(); ?>about-us">ABOUT</a></li>		
 
-                        <li class="menu-header-item demo"><a href="<?php echo site_url(); ?>login">DEMO</a></li>		
+                        <li class="<?php echo ($menu[2]) ? 'partner-active' : 'partner'; ?>"><a href="<?php echo site_url(); ?>partners">PARTNERS</a></li>		
                         <li class="menu-header-item <?php echo ($menu[3]) ? 'merchant-active' : 'merchant'; ?>"><a href="<?php echo site_url(); ?>merchant">MERCHANT..?</a></li>		
                         <li class="menu-header-item <?php echo ($menu[4]) ? 'contact-active' : 'contact'; ?>"><a href="<?php echo site_url(); ?>contact-us">CONTACT</a></li>		
 

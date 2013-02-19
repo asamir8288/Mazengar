@@ -46,6 +46,7 @@ $route['merchant'] = 'site/merchant';
 $route['contact-us'] = 'site/contact_us';
 $route['privacy-policy'] = 'site/privacy_policy';
 $route['terms-conditions'] = 'site/terms_conditions';
+$route['partners'] = 'site/partners';
 
 
 /* End of file routes.php */

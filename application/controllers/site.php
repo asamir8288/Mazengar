@@ -54,6 +54,13 @@ class Site extends CI_Controller {
         $this->template->write_view('content', 'frontend/contact_us', $this->data);
         $this->template->render();
     }
+    
+    public function partners(){
+        $this->data['page_title'] = 'Partners';
+        $this->data['menu'] = array(0, 0, 1, 0, 0);
+        $this->template->write_view('content', 'frontend/partners', $this->data);
+        $this->template->render();
+    }
 
     public function privacy_policy(){
         $this->data['page_title'] = 'Privacy Policy';

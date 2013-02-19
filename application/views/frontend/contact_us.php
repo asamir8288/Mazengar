@@ -15,19 +15,41 @@
 <div class="horizontal-seperator"></div>
 <div style="clear: both;"></div>
 <div style="margin-top:  30px;">
-    <div style="float: left;width: 500px;color: #404040;font-family: calibri, arial, sans-serif;font-size: 17px;">
+    <div style="float: left;width: 365px;color: #404040;font-family: calibri, arial, sans-serif;font-size: 17px;">
         <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Dominos Media, LLC</strong> <br />
         14 Mosadak St. - Flat 83<br />
         Dokki - Giza - Egypt<br />
         <br />
         Tel. +20 100 373 8818<br />
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
+        <div class="h-line"></div>
+
+        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Qatar, Sales Branch</strong> <br />
+        14 Mosadak St. - Flat 83<br />
+        Dokki - Giza - Egypt<br />
+        <br />
+        Tel. +20 100 373 8818<br />
+        <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
+        <div class="h-line"></div>
+
+        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">General Manager</strong> <br />         
+        Amro Algarhy<br />
+        <a href="mailto:amro@DominosMedia.com">amro@DominosMedia.com</a><br />
+        +20 100 373 8818
+        <br />
+        <div class="h-line"></div>
+
+        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Marketing & Sales Manager</strong> <br />         
+        Serah Fouad<br />
+        <a href="mailto:serah@DominosMedia.com">serah@DominosMedia.com</a><br />
+        +20 11 41 0000 86
+        <br />
 
     </div>
 
     <div style="float: left;">
         <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-        <div id="map" style="border: 4px solid #E5E3DF;width: 450px; height: 260px;">            
+        <div id="map" style="border: 4px solid #E5E3DF;width: 600px; height: 360px;">            
         </div> 
         <script type="text/javascript">
             var locations = [
@@ -58,4 +80,4 @@
     </div>
 </div>
 
-<div style="clear: both;height: 150px;"></div>
+<div style="clear: both;height: 30px;"></div>
