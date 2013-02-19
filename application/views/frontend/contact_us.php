@@ -32,7 +32,7 @@
         Tel. +20 100 373 8818<br />
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
         <div class="h-line"></div>-->
-<br /><br /><br />
+<br />
         <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;color: #888888;">General Manager</strong> <br />         
         Amro Algarhy<br />
         <a href="mailto:amro@DominosMedia.com">amro@DominosMedia.com</a><br />
