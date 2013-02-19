@@ -22,7 +22,7 @@
         <br />
         Tel. +20 100 373 8818<br />
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
-        <div class="h-line"></div>
+
 
 <!--        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Qatar, Sales Branch</strong> <br />
         14 Mosadak St. - Flat 83<br />
@@ -31,15 +31,15 @@
         Tel. +20 100 373 8818<br />
         <a href="mailto:mail@mazengar.com">mail@mazengar.com</a><br />
         <div class="h-line"></div>-->
-
-        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">General Manager</strong> <br />         
+<br /><br /><br />
+        <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;">General Manager</strong> <br />         
         Amro Algarhy<br />
         <a href="mailto:amro@DominosMedia.com">amro@DominosMedia.com</a><br />
         +20 100 373 8818
         <br />
         <div class="h-line"></div>
 
-        <strong style="font-size: 19px;font-weight: bold;text-transform: uppercase;">Marketing & Sales Manager</strong> <br />         
+        <strong style="font-size: 17px;font-weight: bold;text-transform: uppercase;">Marketing & Sales Manager</strong> <br />         
         Serah Fouad<br />
         <a href="mailto:serah@DominosMedia.com">serah@DominosMedia.com</a><br />
         +20 11 41 0000 86
