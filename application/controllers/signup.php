@@ -69,6 +69,21 @@ class Signup extends CI_Controller {
         
         echo json_encode($data);
     }
+    
+    public function forgot_password(){
+        if($this->input->post('submit')){
+            $incoded_email = rtrim(strtr(base64_encode($this->input->post('email')), '+/', '-_'), '=');
+            
+            $body = 'please press on the following URL to reset your password.';
+            $body .= '<a href="'. site_url('signup/change_password/' . $incoded_email) .'"></a>';
+            send_email('ahmed@dominosmedia.com', 'Forgot Password | Mazengar', $body);
+        }
+        
+        $this->data['top_menu'] = setGuestMenuItemActive('');
+        $this->data['submit_url'] = site_url('signup/forgot_password');
+        $this->template->write_view('content', 'backend/forgot_password', $this->data);
+        $this->template->render();
+    }
 
 }
 

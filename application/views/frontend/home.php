@@ -141,4 +141,17 @@
 
 <div class="horizontal-seperator"></div>
 
-<img src="<?php echo static_url(); ?>layout/images/frontend/mazengar-benefits.png" />
+
+<div>
+    <div class="mazengar-benefites"></div>
+    <ul class="benefites-list">
+        <li>Build your own App with low price</li>
+        <li>Share your products with others</li>
+        <li>Catch new customers</li>
+    </ul>
+    <ul class="benefites-list" style="width: 290px;">
+        <li>Easy and powerful CMS</li>
+        <li>Share your offers</li>
+        <li>Monitoring your App users</li>
+    </ul>
+</div>

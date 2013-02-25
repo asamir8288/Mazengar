@@ -602,3 +602,34 @@ div.online-presence .linkedin-icon{
 .partner-box .real-estate{
     font-family: Arial;display: block;color: #959595;font-weight: normal; font-style: italic;
 }
+
+.mazengar-benefites{
+    background-image: URL(../../images/frontend/benefits-mazengar.png);
+    background-repeat: no-repeat;
+    width: 222px;
+    height: 76px;
+    display: block;
+    float: left;
+    margin-top: 40px;    
+}
+
+.benefites-list{
+    float: left;
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 370px;
+}
+
+.benefites-list li{
+    font-family: Century Schoolbook;
+    background-image: URL(../../images/frontend/mazengar-benefits-icon.png);
+    background-repeat: no-repeat;
+    min-width: 30px;
+    height: 37px;
+    display: block;
+    color: #373737;
+    font-size: 20px;
+    padding-left: 35px;
+    padding-top: 4px;
+    margin-top: 10px;
+}

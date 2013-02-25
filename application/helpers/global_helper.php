@@ -25,9 +25,9 @@ function pre_print($data) {
 function setGuestMenuItemActive($active_menu) {
     $html = '<li class="menu-header-separator"></li>';
     if ($active_menu == 'about_us') {
-        $html .= '<li class="menu-header-item active-menu-item"><a class="red-menu-item" href="#">ABOUT US</a></li>';
+        $html .= '<li class="menu-header-item active-menu-item"><a class="red-menu-item" href="'. site_url('about-us') .'">ABOUT US</a></li>';
     } else {
-        $html .= '<li class="menu-header-item"><a href="#">ABOUT US</a></li>';
+        $html .= '<li class="menu-header-item"><a href="'. site_url('about-us') .'">ABOUT US</a></li>';
     }
 
     if ($active_menu == 'how_it_works') {
@@ -37,9 +37,9 @@ function setGuestMenuItemActive($active_menu) {
     }
 
     if ($active_menu == 'contact_us') {
-        $html .= '<li class="menu-header-item active-menu-item"><a class="red-menu-item" href="#">CONTACT US</a></li>';
+        $html .= '<li class="menu-header-item active-menu-item"><a class="red-menu-item" href="'. site_url('contact-us') .'">CONTACT US</a></li>';
     } else {
-        $html .= '<li class="menu-header-item"><a href="#">CONTACT US</a></li>';
+        $html .= '<li class="menu-header-item"><a href="'. site_url('contact-us') .'">CONTACT US</a></li>';
     }
 
     $html .= '<li class="menu-header-separator"></li>';

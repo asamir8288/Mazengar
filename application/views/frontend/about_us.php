@@ -58,6 +58,17 @@
 
 <div class="right-container">
     <img style="float: left;margin-top: 64px;" src="<?php echo static_url(); ?>layout/images/frontend/mazengar-benefits-vertical.png" />
+    <div>
+        <ul class="benefites-list" style="margin-left: 3px;">
+        <li>Build your own App with low price</li>
+        <li>Share your products with others</li>
+        <li>Catch new customers</li>    
+        <li>Easy and powerful CMS</li>
+        <li>Share your offers</li>
+        <li>Monitoring your App users</li>
+    </ul>
+    </div>
+    
     <img style="float: left;margin-top: 26px;margin-left: 9px;" src="<?php echo static_url(); ?>layout/images/frontend/want-to-title-small.png" />
     <img style="clear:both;float: left;margin-top: 11px;margin-left: 29px;" src="<?php echo static_url(); ?>layout/images/frontend/build-your-own-app-small.png" />												
     <p class="sidebar-title-banner"><span style="color: black">Case One:</span> The Standalone Application</p>
