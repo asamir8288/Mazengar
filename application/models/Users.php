@@ -28,6 +28,18 @@ class Users extends BaseUsers
         $u->save();
     }
     
+    public function updateUser(array $user_data){
+        Doctrine_Query::create()
+                ->update('Users u')
+                ->set('u.first_name', '?', $user_data['first_name'])
+                ->set('u.last_name', '?', $user_data['last_name'])
+                ->set('u.job_title', '?', $user_data['job_title'])
+                ->set('u.phone', '?', $user_data['phone'])
+                ->set('u.email', '?', $user_data['email'])
+                ->where('u.id =?' , $user_data['user_id'])
+                ->execute();
+    }
+    
     public function updatePassword($email, $password){
         Doctrine_Query::create()
                 ->update('Users u')

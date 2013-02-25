@@ -123,7 +123,7 @@ function loggedinMenu($activeItem) {
 
     $html .= '<ul class="menu-dropdown-wrapper" style="">
                 <div class="menu-dropdown-items">
-                    <li class="dropdown-menu-list"><a class="dropdown-menu-anchor" href="#">Edit My Account</a></li>
+                    <li class="dropdown-menu-list"><a class="dropdown-menu-anchor" href="'. site_url('shop/edit_account') .'">Edit My Account</a></li>
                     <li class="dropdown-menu-separator"></li>
                     <li class="dropdown-menu-list"><a class="dropdown-menu-anchor" href="#">Help</a></li>									
                     <li class="dropdown-menu-separator"></li>

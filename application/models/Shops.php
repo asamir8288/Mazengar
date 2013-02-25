@@ -34,6 +34,24 @@ class Shops extends BaseShops
         return $s->id;
     }
     
+    public function updateShop(array $data){
+        Doctrine_Query::create()
+                ->update('Shops s')
+                ->set('s.name', '?', $data['shop_name'])
+                ->set('s.longitude', '?', $data['longitude'])
+                ->set('s.latitude', '?', $data['latitude'])
+                ->set('s.city', '?', $data['city'])
+                ->set('s.area', '?', $data['area'])
+                ->set('s.street', '?', $data['street'])
+                ->set('s.tel1', '?', $data['tel1'])
+                ->set('s.tel2', '?', $data['tel2'])
+                ->set('s.fax', '?', $data['fax'])
+                ->set('s.website', '?', $data['website'])
+                ->set('s.updated_at', '?', date('ymdHis'))
+                ->where('s.id =?', $data['shop_id'])
+                ->execute();
+    }
+    
     function isSubDomainExist($subDomain){
         $q = Doctrine_Query::create()
                 ->select('COUNT(s.id) AS is_exist')
@@ -51,6 +69,15 @@ class Shops extends BaseShops
         return Doctrine_Query::create()
                 ->select('s.*, op.*')
                 ->from('Shops s, s.ShopOnlinePresence op')
+                ->where('s.id=?', $id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+    }
+    
+    public function getShopAndUserAccount($id){
+        return Doctrine_Query::create()
+                ->select('s.*, op.*, u.*')
+                ->from('Shops s, s.ShopOnlinePresence op, s.Users u')
                 ->where('s.id=?', $id)
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->fetchOne();
