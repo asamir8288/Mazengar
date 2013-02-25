@@ -27,4 +27,12 @@ class Users extends BaseUsers
         $u->is_primary_account = $user_data['is_primary_account'];
         $u->save();
     }
+    
+    public function updatePassword($email, $password){
+        Doctrine_Query::create()
+                ->update('Users u')
+                ->set('u.password', '?', md5($password))
+                ->where('u.email =?', $email)
+                ->execute();
+    }
 }

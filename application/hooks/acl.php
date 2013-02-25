@@ -16,7 +16,7 @@ class ACL {
         $CI = & get_instance();
         $user_info = $CI->session->userdata('user_info');
 
-        $public_pages = array('application', 'about-us', 'merchant', 'site', 'contact-us', 'privacy-policy', 'terms-conditions', 'partners');
+        $public_pages = array('application', 'about-us', 'merchant', 'site', 'contact-us', 'privacy-policy', 'terms-conditions', 'partners', 'forgot-password', 'change-password');
         if (!in_array($CI->uri->segment(1), $public_pages)) {
             if (!$user_info) {
                 if ($CI->uri->segment(1) != '' && $CI->uri->segment(1) != 'signup' && $CI->uri->segment(1) != 'login') {

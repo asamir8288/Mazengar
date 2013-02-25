@@ -47,6 +47,8 @@ $route['contact-us'] = 'site/contact_us';
 $route['privacy-policy'] = 'site/privacy_policy';
 $route['terms-conditions'] = 'site/terms_conditions';
 $route['partners'] = 'site/partners';
+$route['change-password/(:any)'] = 'signup/change_password/$1';
+$route['forgot-password'] = 'signup/forgot_password';
 
 
 /* End of file routes.php */

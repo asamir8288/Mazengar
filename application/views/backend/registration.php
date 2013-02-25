@@ -57,7 +57,7 @@
 </div>
 
 <div class="field-group">
-    <label class="form-label">Confrim Password</label>
+    <label class="form-label">Confirm Password</label>
     <input type="password" name="confirm_password" data-equals="password" >
 </div>
 
