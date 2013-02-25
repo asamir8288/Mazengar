@@ -11,7 +11,7 @@
             <input type="password" name="password" minlength="4" >
         </li>
         <li class="field-group" style="width: 295px;margin-left: 144px;">
-            <a href="" class="forget_pass">Forgot Password</a>
+            <a href="<?php echo site_url('forgot-password');?>" class="forget_pass">Forgot Password</a>
             <?php echo form_submit('submit', '', 'class="signin_btn"');?>
         </li>
     </ul>
