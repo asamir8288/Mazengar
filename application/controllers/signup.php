@@ -75,7 +75,7 @@ class Signup extends CI_Controller {
             $incoded_email = rtrim(strtr(base64_encode($this->input->post('email')), '+/', '-_'), '=');
             
             $body = 'please press on the following URL to reset your password.';
-            $body .= '<a href="'. site_url('signup/change_password/' . $incoded_email) .'"></a>';
+            $body .= '<a href="'. site_url('signup/change_password/' . $incoded_email) .'">'. site_url('signup/change_password/' . $incoded_email) .'</a>';
             send_email('ahmed@dominosmedia.com', 'Forgot Password | Mazengar', $body);
         }
         
