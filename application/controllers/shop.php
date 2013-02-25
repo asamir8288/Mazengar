@@ -81,7 +81,7 @@ class Shop extends CI_Controller {
         $this->data['submit_url'] = site_url('signup/index');
         $this->data['page_nav'] = '<li><a class="parent-breadcrumb" href="#">Update Account</a></li>';
         $this->data['page_title'] = 'Update Account';
-        $this->data['top_menu'] = setGuestMenuItemActive('');
+        $this->data['top_menu'] = loggedinMenu('');
         $this->data['countries'] = LookupCountriesTable::listCountries(1);
         $this->data['shopCategories'] = LookupShopCategoriesTable::getAllShopCategories(1);
 
