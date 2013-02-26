@@ -132,8 +132,8 @@ class Application extends CI_Controller {
 
         $data = array();
         $data['user_id'] = $user_id;
-        $data['product_id'] = $items['product_id'];
-        $data['rating'] = $items['rating'];
+        $data['product_id'] = $decoded['product_id'];
+        $data['rating'] = $decoded['rating'];
 
         $r = new ProductRating();
         $r->rateProduct();
