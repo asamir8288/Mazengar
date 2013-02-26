@@ -141,7 +141,9 @@ class Application extends CI_Controller {
         echo json_encode(true);
     }
     
-    public function request_rating($email, $shop_id){
+    public function request_rating(){
+        $email = $_GET['email'];
+        $shop_id =  $_GET['shop_id'];
         $r = new ProductRating();
         $ratings = $r->getRatingByEmailAndShopId($email, $shop_id);
         
