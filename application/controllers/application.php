@@ -136,7 +136,7 @@ class Application extends CI_Controller {
         $data['rating'] = $decoded['rating'];
 
         $r = new ProductRating();
-        $r->rateProduct();
+        $r->rateProduct($data);
         
         echo json_encode(true);
     }
