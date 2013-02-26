@@ -14,6 +14,7 @@ Doctrine_Manager::getInstance()->bindComponent('MobileRegistrations', 'default')
  * @property string $phone
  * @property timestamp $created_at
  * @property integer $deleted
+ * @property Doctrine_Collection $ProductRating
  * @property Doctrine_Collection $UserProductsBasket
  * 
  * @package    ##PACKAGE##
@@ -92,6 +93,10 @@ abstract class BaseMobileRegistrations extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('ProductRating', array(
+             'local' => 'id',
+             'foreign' => 'mobile_user_id'));
+
         $this->hasMany('UserProductsBasket', array(
              'local' => 'id',
              'foreign' => 'user_id'));

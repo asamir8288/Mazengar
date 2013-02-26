@@ -24,6 +24,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopProducts', 'default');
  * @property LookupCurrencies $LookupCurrencies
  * @property ShopMenuSubs $ShopMenuSubs
  * @property ShopCategoryFilters $ShopCategoryFilters
+ * @property Doctrine_Collection $ProductRating
  * @property Doctrine_Collection $ShopProductComponents
  * @property Doctrine_Collection $UserProductsBasket
  * 
@@ -177,6 +178,10 @@ abstract class BaseShopProducts extends Doctrine_Record
         $this->hasOne('ShopCategoryFilters', array(
              'local' => 'category_filter_id',
              'foreign' => 'id'));
+
+        $this->hasMany('ProductRating', array(
+             'local' => 'id',
+             'foreign' => 'product_id'));
 
         $this->hasMany('ShopProductComponents', array(
              'local' => 'id',
