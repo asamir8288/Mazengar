@@ -70,5 +70,17 @@
             <span class="real-estate">Book Stores</span>
         </div>
     </div>
+    <div class="partner-box" style="margin-right: 0px; "><img src="<?php echo static_url(); ?>layout/images/frontend/partners/hagat-handmade.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">7agat Handmade</span>
+            <span class="real-estate">Accessories</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/antakhana.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">Antakhana</span>
+            <span class="real-estate">Furniture</span>
+        </div>
+    </div>
 
 </div>
