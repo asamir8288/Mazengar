@@ -64,5 +64,11 @@
             <span class="real-estate">Decoration</span>
         </div>
     </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/alef.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">ALEF</span>
+            <span class="real-estate">Book Stores</span>
+        </div>
+    </div>
 
 </div>
