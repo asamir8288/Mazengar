@@ -82,5 +82,17 @@
             <span class="real-estate">Furniture</span>
         </div>
     </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/rabie-mrad.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">Rabie Mrad</span>
+            <span class="real-estate">Beauty</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/east-asia.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">East Asia</span>
+            <span class="real-estate">Computers & Electronics</span>
+        </div>
+    </div>
 
 </div>
