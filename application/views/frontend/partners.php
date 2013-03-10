@@ -94,5 +94,11 @@
             <span class="real-estate">Computers & Electronics</span>
         </div>
     </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/toi.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">TOI</span>
+            <span class="real-estate">Beauty</span>
+        </div>
+    </div>
 
 </div>
