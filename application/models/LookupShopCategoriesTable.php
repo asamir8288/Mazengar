@@ -22,6 +22,7 @@ class LookupShopCategoriesTable extends Doctrine_Table
                 ->select('sc.*')
                 ->from('LookupShopCategories sc')
                 ->where('sc.lang_id=?', $lang_id)
+                ->orderBy('sc.name ASC')
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->execute();
     }
