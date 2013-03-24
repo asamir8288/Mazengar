@@ -67,7 +67,7 @@ class Shop extends CI_Controller {
         
         if($this->input->post('submit')){
             $posted_data = $_POST;
-            $posted_data['shop_id'] = self::$user_info['shop_id'];
+            $posted_data['shop_id'] = self::$user_info['shop_id'];            
             $s->updateShop($posted_data);
             
             $u = new Users();
@@ -78,7 +78,7 @@ class Shop extends CI_Controller {
                 
         $this->data['data'] = $s->getShopAndUserAccount(self::$user_info['shop_id']);
 
-        $this->data['submit_url'] = site_url('signup/index');
+        $this->data['submit_url'] = site_url('shop/edit_account');
         $this->data['page_nav'] = '<li><a class="parent-breadcrumb" href="#">Update Account</a></li>';
         $this->data['page_title'] = 'Update Account';
         $this->data['top_menu'] = loggedinMenu('');

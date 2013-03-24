@@ -34,7 +34,7 @@
             $val = $data['Users'][0]['first_name'];
         }
     ?>
-    <input type="text" value="<?php echo $val;?>" name="first_name" pattern="[a-zA-Z ]{3,}" required="required" title="Must be 3 or more characters"  >
+    <input type="text" value="<?php echo $val;?>" name="first_name" required="required" title="Must be 3 or more characters"  >
 </div>
 
 <div class="field-group">
@@ -45,7 +45,7 @@
         }
     ?>
     <label class="form-label">Last Name</label>
-    <input type="text" name="last_name" value="<?php echo $val;?>" pattern="[a-zA-Z ]{3,}" required="required" title="Must be 3 or more characters"  >
+    <input type="text" name="last_name" value="<?php echo $val;?>" required="required" title="Must be 3 or more characters"  >
 </div>
 
 <div class="field-group">
@@ -56,7 +56,7 @@
         }
     ?>
     <label class="form-label">Job Title</label>
-    <input type="text" name="job_title" value="<?php echo $val;?>" pattern="[a-zA-Z ]{3,}" required="required" title="Must be 3 or more characters"  >
+    <input type="text" name="job_title" value="<?php echo $val;?>" required="required" title="Must be 3 or more characters"  >
 </div>
 
 <div class="field-group">
@@ -91,7 +91,7 @@
         }
     ?>
     <label class="form-label">Shop Name</label>
-    <input type="text" name="shop_name" value="<?php echo $val;?>" pattern="[a-zA-Z ]{2,}" required="required"  title="Must be 2 or more characters" >
+    <input type="text" name="shop_name" value="<?php echo $val;?>" required="required"  title="Must be 2 or more characters" >
 </div>
 
 <div class="field-group">
