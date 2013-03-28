@@ -138,7 +138,7 @@
                 <?php
             }
             ?>
-            <select class="custom-select" id="collection_id" name="collection_id">
+            <select class="custom-select" id="collection_id" required="required" name="collection_id">
                 <option value="">Select</option>
 
             </select>
