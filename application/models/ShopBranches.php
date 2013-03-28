@@ -31,6 +31,7 @@ class ShopBranches extends BaseShopBranches {
         $b->tel2 = $branch_data['tel2'];
         $b->fax = $branch_data['fax'];
         $b->email = $branch_data['email'];
+        $b->main_img = $branch_data['main_img'];
         $b->website = $branch_data['website'];
         $b->is_active = true;
         $b->created_at = date('ymdHis');
@@ -58,6 +59,7 @@ class ShopBranches extends BaseShopBranches {
                 ->set('b.tel1', '?', $branch_data['tel1'])
                 ->set('b.tel2', '?', $branch_data['tel2'])
                 ->set('b.fax', '?', $branch_data['fax'])
+                ->set('b.main_img', '?', $branch_data['main_img'])
                 ->set('b.email', '?', $branch_data['email'])
                 ->set('b.website', '?', $branch_data['website'])
                 ->set('b.updated_at', '?', date('ymdHis'))
