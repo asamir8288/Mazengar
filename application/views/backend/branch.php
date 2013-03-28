@@ -155,8 +155,8 @@
 </div>
 
 <div class="right-container">
-    <input type="hidden" name="main_pic" class="main_img" value="" />
-    <img class="main-image"src="<?php echo static_url(); ?>layout/images/offer-default-image.jpg" />
+    <input type="hidden" name="main_pic" class="main_img" value="<?php echo isset($data['main_img']) ? $data['main_img'] : '' ?>" />
+    <img class="main-image"src="<?php echo isset($data['main_img']) && $data['main_img'] != '' ? static_url() . 'uploads/' . $data['main_img'] : static_url() . 'layout/images/offer-default-image.jpg' ?>" />
     <a class="upload-image-anchor" href="#">Upload Branch Cover Image</a>
 
 </div>

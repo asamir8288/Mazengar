@@ -16,7 +16,12 @@
         <input type="hidden" name="rank[]" value="<?php echo $branch['id'];?>" />
         <div class="title"><?php echo $branch['name']; ?></div>
         <div class="frame">
-            <img src="<?php echo static_url(); ?>layout/images/img-sample.png" />
+            <?php if($branch['main_img'] != ''){ ?>
+                <img src="<?php echo static_url(); ?>uploads/<?php echo $branch['main_img'];?>" />
+            <?php }else{ ?>
+                <img src="<?php echo static_url(); ?>layout/images/img-sample.png" />
+            <?php } ?>
+            
         </div>
         <div class="actions">
             <?php
