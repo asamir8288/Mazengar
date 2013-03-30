@@ -65,7 +65,7 @@
 <p class="heading-title">SHOP INFO.</p>
 <div class="field-group">
     <label class="form-label">Shop Name</label>
-    <input type="text" name="shop_name" pattern="[a-zA-Z ]{2,}" required="required"  title="Must be 2 or more characters" >
+    <input type="text" name="shop_name" required="required"  title="Must be 2 or more characters" >
 </div>
 
 <div class="field-group">
