@@ -11,7 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopProducts', 'default');
  * @property integer $sub_id
  * @property integer $category_filter_id
  * @property string $name
- * @property decimal $price
+ * @property string $price
  * @property integer $currency_id
  * @property decimal $discount
  * @property integer $availability
@@ -21,6 +21,7 @@ Doctrine_Manager::getInstance()->bindComponent('ShopProducts', 'default');
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $deleted
+ * @property integer $product_description_lang
  * @property LookupCurrencies $LookupCurrencies
  * @property ShopMenuSubs $ShopMenuSubs
  * @property ShopCategoryFilters $ShopCategoryFilters
@@ -73,9 +74,9 @@ abstract class BaseShopProducts extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn('price', 'decimal', 10, array(
-             'type' => 'decimal',
-             'length' => 10,
+        $this->hasColumn('price', 'string', 100, array(
+             'type' => 'string',
+             'length' => 100,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
@@ -160,6 +161,16 @@ abstract class BaseShopProducts extends Doctrine_Record
              'primary' => false,
              'default' => '0',
              'notnull' => false,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('product_description_lang', 'integer', 1, array(
+             'type' => 'integer',
+             'length' => 1,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              ));
     }

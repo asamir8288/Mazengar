@@ -27,6 +27,11 @@ class ShopProducts extends BaseShopProducts {
         if (isset($productData['sub_id'])) {
             $sub_id = $productData['sub_id'];
         }
+        
+        $product_description_lang = true;
+        if($productData['desc_language'] == 'ar'){
+            $product_description_lang = false;
+        }
 
         $p = new ShopProducts();
         $p->sub_id = $sub_id;
@@ -37,6 +42,7 @@ class ShopProducts extends BaseShopProducts {
         $p->discount = $productData['discount'];
         $p->availability = $availability;
         $p->description = $productData['description'];
+        $p->product_description_lang = $product_description_lang;
         $p->main_img = $main_img;
         $p->created_at = date('ymdHis');
         $p->save();
@@ -64,6 +70,11 @@ class ShopProducts extends BaseShopProducts {
         if (isset($productData['sub_id'])) {
             $sub_id = $productData['sub_id'];
         }
+        
+        $product_description_lang = true;
+        if($productData['desc_language'] == 'ar'){
+            $product_description_lang = false;
+        }
 
         Doctrine_Query::create()
                 ->update('ShopProducts p')
@@ -75,6 +86,7 @@ class ShopProducts extends BaseShopProducts {
                 ->set('p.discount', '?', $productData['discount'])
                 ->set('p.availability', '?', $availability)
                 ->set('p.description', '?', $productData['description'])
+                ->set('p.product_description_lang', '?', $product_description_lang)
                 ->set('p.main_img', '?', $main_img)
                 ->set('p.updated_at', '?', date('ymdHis'))
                 ->where('p.id=?', $productData['prod_id'])

@@ -125,6 +125,19 @@
             <label class="form-label-short">Product Description</label>
             <textarea name="description" required="required" ><?php echo isset($data['description']) ? $data['description'] : ''; ?></textarea>
         </div>
+        <div class="field-group">
+            <?php
+            $arabic = '';
+            $english = 'checked="checked"';
+            if (isset($data['product_description_lang']) && !$data['product_description_lang']) {
+               $arabic = 'checked="checked"';
+               $english = '';
+            }
+            ?>
+            <label class="form-label-checkbox"  style="margin-left:14px">Description Language</label>
+            <label><input <?php echo $english;?> style="margin-left: 20px;" type="radio" name="desc_language" value="en"/> English</label>
+            <label><input <?php echo $arabic;?> type="radio" name="desc_language" value="ar"/> Arabic</label>
+        </div>
 
         <div class="field-group">
             <?php
