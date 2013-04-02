@@ -122,6 +122,52 @@ class ShopMenuSubsTable extends Doctrine_Table {
 //        echo $q->getSqlQuery();exit;
         return ($q->execute());
     }
+    
+    public static function buildProductQuery(Doctrine_RawSql &$q, $shop_id) {
+        $max_level = array_shift(Doctrine_Query::
+                        create()->from('ShopMenuSubs')
+                        ->select('MAX(level)')
+                        ->where('shop_id=?', $shop_id)
+                        ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                        ->fetchOne());
+
+        $select[] = ('{s1.*}');
+        $q->addComponent('s1', 'ShopMenuSubs s1');
+        $q->from('
+            (select * from shop_menu_subs where shop_id="' . $shop_id . '" AND level=1 AND type="products") s1
+            ');
+
+        for ($i = 2; $i <= $max_level; $i++) {
+            $select[] = ('{s' . $i . '.*}');
+            $q->addComponent('s' . $i, 's' . ($i - 1) . '.ShopMenuSubs s' . $i);
+            $q->addFrom('
+            left join 
+            (select * from shop_menu_subs where shop_id="' . $shop_id . '" AND level=' . $i . ') s' . $i . '
+            ON s' . ($i - 1) . '.id=s' . $i . '.related_to
+            ');
+        }
+
+        $q->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+
+        return array("max_level" => $max_level, "select" => $select);
+    }
+
+    static function getApplicationShopProducts($shop_id) {
+        $q = new Doctrine_RawSql();
+        $array = self::buildProductQuery($q, $shop_id);
+        $q->addFrom('
+                    LEFT JOIN shop_products sp ON s' . $array['max_level'] . '.id=sp.sub_id
+                LEFT JOIN shop_product_components pc ON pc.product_id=sp.id 
+                LEFT JOIN lookup_currencies c ON c.id=sp.currency_id');
+        $q->addComponent('sp', 's'.$array['max_level'].'.ShopProducts sp');
+        $q->addComponent('pc', 'sp.ShopProductComponents pc');
+        $q->addComponent('c', 'sp.LookupCurrencies c');
+        
+        $array['select'][] = ('{sp.*}, {pc.*}, {c.name}');
+        $q->select(implode(',', $array['select']));
+//        echo $q->getSqlQuery();exit;
+        return ($q->execute());
+    }
 
     public static function getProductMenu($menuId) {
         $q = Doctrine_Query::create()

@@ -52,8 +52,8 @@ class Application extends CI_Controller {
     }
 
     public function get_shop_products($shop_id) {
-        $data = ShopMenuSubsTable::getShopProducts($shop_id);
-//        pre_print($data);
+        $data = ShopMenuSubsTable::getApplicationShopProducts($shop_id);
+        pre_print($data);
         echo json_encode($data);
     }
 
