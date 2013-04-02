@@ -99,7 +99,7 @@
 
     <div class="field-group" style="margin-top: 0px;">
         <label class="form-label">Branch Name</label>
-        <input type="text" name="name" value="<?php echo isset($data['name']) ? $data['name'] : ''; ?>" pattern="[a-zA-Z ]{2,}" required="required"  title="Must be 2 or more characters" >
+        <input type="text" name="name" value="<?php echo isset($data['name']) ? $data['name'] : ''; ?>" required="required"  title="Must be 2 or more characters" >
     </div>
 
     <div class="field-group">
