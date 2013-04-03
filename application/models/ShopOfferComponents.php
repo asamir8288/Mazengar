@@ -24,7 +24,7 @@ class ShopOfferComponents extends BaseShopOfferComponents
     public function hardDeleteOffersComponents($shop_id){
         Doctrine_Query::create()
                 ->delete('ShopOfferComponents po')
-                ->where('po.shop_id IN (SELECT o.id FROM ShopOffers o INNER JOIN o.ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
+                ->where('po.offer_id IN (SELECT o.id FROM ShopOffers o INNER JOIN o.ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
                 ->execute();
     }
 }
