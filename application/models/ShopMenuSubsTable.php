@@ -35,9 +35,9 @@ class ShopMenuSubsTable extends Doctrine_Table {
      */
     static function traverse(array $menu, $level, $parent_id) {
         foreach ($menu as $key => $value) {
-            $sub=array();
+            $sub = array();
             if (isset($value['sub']))
-                $sub=$value['sub'];
+                $sub = $value['sub'];
             unset($value['sub']);
             $this_id = self::saveItem(
                             $value
@@ -54,17 +54,17 @@ class ShopMenuSubsTable extends Doctrine_Table {
 
         $menu = new ShopMenuSubs();
         $menu->shop_id = self::$shop_id;
-        $menu->name = $data['name'];        
-        if(isset($data['type']))
+        $menu->name = $data['name'];
+        if (isset($data['type']))
             $menu->type = $data['type'];
-        if(isset($data['img'])&&$data['img']!='undefined')
-            $menu->img = trim(array_pop (explode (base_url(), $data['img'])),'/');
+        if (isset($data['img']) && $data['img'] != 'undefined')
+            $menu->img = trim(array_pop(explode(base_url(), $data['img'])), '/');
         if ($parent_id) {
             $menu->related_to = $parent_id;
         }
         $menu->level = $level;
-        $menu->created_at=date('ymdHis');
-        $menu->updated_at=date('ymdHis');
+        $menu->created_at = date('ymdHis');
+        $menu->updated_at = date('ymdHis');
 
         $menu->save();
         return $menu->id;
@@ -109,20 +109,22 @@ class ShopMenuSubsTable extends Doctrine_Table {
     static function getShopProducts($shop_id) {
         $q = new Doctrine_RawSql();
         $array = self::buildQuery($q, $shop_id);
-        $q->addFrom('
-                    INNER JOIN shop_products sp ON s' . $array['max_level'] . '.id=sp.sub_id
-                LEFT JOIN shop_product_components pc ON pc.product_id=sp.id 
-                INNER JOIN lookup_currencies c ON c.id=sp.currency_id');
-        $q->addComponent('sp', 's'.$array['max_level'].'.ShopProducts sp');
-        $q->addComponent('pc', 'sp.ShopProductComponents pc');
-        $q->addComponent('c', 'sp.LookupCurrencies c');
-        
-        $array['select'][] = ('{sp.*}, {pc.*}, {c.name}');
+
+        for ($i = 1; $i <= $array['max_level']; $i++) {
+            $q->addFrom('
+                    LEFT JOIN shop_products sp' . $i . ' ON s' . $i . '.id=sp' . $i . '.sub_id
+                LEFT JOIN shop_product_components pc' . $i . ' ON pc' . $i . '.product_id=sp' . $i . '.id 
+                LEFT JOIN lookup_currencies c' . $i . ' ON c' . $i . '.id=sp' . $i . '.currency_id');
+            $q->addComponent('sp' . $i . '', 's' . $i . '.ShopProducts sp' . $i . '');
+            $q->addComponent('pc' . $i . '', 'sp' . $i . '.ShopProductComponents pc' . $i . '');
+            $q->addComponent('c' . $i, 'sp' . $i . '.LookupCurrencies c');
+            $array['select'][] = ('{sp' . $i . '.*}, {pc' . $i . '.*}, {c' . $i . '.name}');
+        }
         $q->select(implode(',', $array['select']));
 //        echo $q->getSqlQuery();exit;
         return ($q->execute());
     }
-    
+
     public static function buildProductQuery(Doctrine_RawSql &$q, $shop_id) {
         $max_level = array_shift(Doctrine_Query::
                         create()->from('ShopMenuSubs')
@@ -155,15 +157,17 @@ class ShopMenuSubsTable extends Doctrine_Table {
     static function getApplicationShopProducts($shop_id) {
         $q = new Doctrine_RawSql();
         $array = self::buildProductQuery($q, $shop_id);
-        $q->addFrom('
-                    LEFT JOIN shop_products sp ON s' . $array['max_level'] . '.id=sp.sub_id
-                LEFT JOIN shop_product_components pc ON pc.product_id=sp.id 
-                LEFT JOIN lookup_currencies c ON c.id=sp.currency_id');
-        $q->addComponent('sp', 's'.$array['max_level'].'.ShopProducts sp');
-        $q->addComponent('pc', 'sp.ShopProductComponents pc');
-        $q->addComponent('c', 'sp.LookupCurrencies c');
-        
-        $array['select'][] = ('{sp.*}, {pc.*}, {c.name}');
+
+        for ($i = 1; $i <= $array['max_level']; $i++) {
+            $q->addFrom('
+                    LEFT JOIN shop_products sp' . $i . ' ON s' . $i . '.id=sp' . $i . '.sub_id
+                LEFT JOIN shop_product_components pc' . $i . ' ON pc' . $i . '.product_id=sp' . $i . '.id 
+                LEFT JOIN lookup_currencies c' . $i . ' ON c' . $i . '.id=sp' . $i . '.currency_id');
+            $q->addComponent('sp' . $i . '', 's' . $i . '.ShopProducts sp' . $i . '');
+            $q->addComponent('pc' . $i . '', 'sp' . $i . '.ShopProductComponents pc' . $i . '');
+            $q->addComponent('c' . $i, 'sp' . $i . '.LookupCurrencies c');
+            $array['select'][] = ('{sp' . $i . '.*}, {pc' . $i . '.*}, {c' . $i . '.name}');
+        }
         $q->select(implode(',', $array['select']));
 //        echo $q->getSqlQuery();exit;
         return ($q->execute());
@@ -178,19 +182,19 @@ class ShopMenuSubsTable extends Doctrine_Table {
                 ->fetchOne();
 
         $menu_item = array();
-        for ($i = ($q['level']-2); $i >= 0; $i--) {
+        for ($i = ($q['level'] - 2); $i >= 0; $i--) {
             $n = Doctrine_Query::create()
                     ->select('m.id, m.level, name')
                     ->from('ShopMenuSubs m')
                     ->where('m.id=?', ($q['related_to'] - $i))
                     ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                     ->fetchOne();
-            
+
             $menu_item[] = $n;
         }
-        
+
         $menu_item[] = $q;
         return $menu_item;
-    }    
+    }
 
 }
