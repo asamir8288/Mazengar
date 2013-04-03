@@ -15,18 +15,18 @@ class Admin extends CI_Controller {
         parent::__construct();
     }
     
-    public function delete_shop(){
+    public function delete_shop($shop_id){
         $pc = new ShopProductComponents();
-        $pc->hardDeleteProductsComponents(21);
+        $pc->hardDeleteProductsComponents($shop_id);
         
         $p = new ShopProducts();
-        $p->hardDeleteProducts(21);
+        $p->hardDeleteProducts($shop_id);
         
         $po = new ShopOfferComponents();
-        $po->hardDeleteOffersComponents(21);
+        $po->hardDeleteOffersComponents($shop_id);
         
         $o = new ShopOffers();
-        $o->hardDeleteOffers(21);
+        $o->hardDeleteOffers($shop_id);
     }
 }
 
