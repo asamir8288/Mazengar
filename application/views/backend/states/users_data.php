@@ -26,7 +26,11 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="table-footer"></td>
+            <td colspan="4" class="table-footer"></td>
         </tr>
     </tfoot>
 </table>
+
+<div class="pagination">
+    <?php echo $pagination;?>
+</div>

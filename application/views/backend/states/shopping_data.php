@@ -24,7 +24,16 @@
             <td><?php echo $shopping_product['MobileRegistrations']['email'];?></td>
             <td><?php echo $shopping_product['ShopProducts']['name'];?></td>
             <td><?php echo $shopping_product['created_at'];?></td>
-            <td></td>
+            <td>
+                <?php if($shopping_product['delivered'] == 0) {?>
+                <a href="<?php echo site_url('shop/deliver_order/' . $shopping_product['id']);?>" class="done-btn"></a>
+                <a href="<?php echo site_url('shop/cancel_order/' . $shopping_product['id']);?>" class="cancel-btn"></a>
+                <?php }else if($shopping_product['delivered'] == 1){
+                    echo '<span style="color: #13ce00;">Done</span>';
+                }else{
+                    echo '<span style="color: #c00000;">Cancelled</span>';
+                }?>
+            </td>
         </tr>
         <?php $i++;} ?>
     </tbody>
@@ -34,3 +43,7 @@
         </tr>
     </tfoot>
 </table>
+<div class="pagination">
+    <?php echo $pagination;?>
+</div>
+

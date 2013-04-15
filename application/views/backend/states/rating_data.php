@@ -32,3 +32,7 @@
         </tr>
     </tfoot>
 </table>
+
+<div class="pagination">
+    <?php echo $pagination;?>
+</div>

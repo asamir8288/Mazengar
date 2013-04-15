@@ -17,12 +17,25 @@ class ProductRatingTable extends Doctrine_Table
         return Doctrine_Core::getTable('ProductRating');
     }
     
-    public static function getProductRating($shop_id){
+    public static function getProductRating($shop_id, $offset = 0, $limit = 10){
         return Doctrine_Query::create()
                 ->select('pr.*, r.*, p.name')
                 ->from('ProductRating pr, pr.ShopProducts p, p.ShopMenuSubs m, pr.MobileRegistrations r')
                 ->where('m.shop_id=?', $shop_id)
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->offset($offset)
+                ->limit($limit)
                 ->execute();
+    }
+    
+    public static function getCountroductRatings($shop_id){
+        $q = Doctrine_Query::create()
+                ->select('COUNT(pr.id) AS total_ratings, pr.id, p.id')
+                ->from('ProductRating pr, pr.ShopProducts p, p.ShopMenuSubs m')
+                ->where('m.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+        
+        return $q['total_ratings'];
     }
 }

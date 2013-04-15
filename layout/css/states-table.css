@@ -34,3 +34,30 @@ thead tr th{
     height: 5px;
     background-color: #424242;
 }
+
+.done-btn{
+    background-image: URL(../images/done-btn.png);
+    width: 43px;
+    height: 21px;
+    display: inline-block;
+}
+
+.cancel-btn{
+    background-image: URL(../images/cancel-btn.png);
+    width: 61px;
+    height: 21px;
+    display: inline-block;
+}
+
+
+.pagination{
+    float: right;position: relative;right: 72px;top: 10px;
+}
+
+.pagination strong{
+    color: #ff0054;
+}
+
+.pagination a{
+    color: #424242;
+}

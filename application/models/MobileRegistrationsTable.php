@@ -17,13 +17,26 @@ class MobileRegistrationsTable extends Doctrine_Table
         return Doctrine_Core::getTable('MobileRegistrations');
     }
     
-    public static function getRegistrations($shop_id){
+    public static function getRegistrations($shop_id, $offset, $limit = 1){
         return Doctrine_Query::create()
                 ->select('r.*')
                 ->from('MobileRegistrations r')
                 ->where('r.shop_id=?', $shop_id)
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->offset($offset)
+                ->limit($limit)
                 ->execute();
+    }
+    
+    public static function getCountRegistrations($shop_id){
+        $q = Doctrine_Query::create()
+                ->select('COUNT(r.id) AS total_users')
+                ->from('MobileRegistrations r')
+                ->where('r.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+        
+        return $q['total_users'];
     }
     
 }

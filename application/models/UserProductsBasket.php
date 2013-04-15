@@ -20,4 +20,12 @@ class UserProductsBasket extends BaseUserProductsBasket
         $b->created_at = date('ymdHis');
         $b->save();
     }
+    
+    public function updateStatus($order_id, $status){
+        Doctrine_Query::create()
+                ->update('UserProductsBasket b')
+                ->set('b.delivered', '?', $status)
+                ->where('b.id=?', $order_id)
+                ->execute();
+    }
 }

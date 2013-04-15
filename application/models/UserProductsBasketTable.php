@@ -17,12 +17,25 @@ class UserProductsBasketTable extends Doctrine_Table
         return Doctrine_Core::getTable('UserProductsBasket');
     }
     
-    public static function getUserProductsBasket($shop_id){
+    public static function getUserProductsBasket($shop_id, $offset = 0, $limit = 10){
         return Doctrine_Query::create()
                 ->select('upb.*, r.*, p.name')
                 ->from('UserProductsBasket upb, upb.ShopProducts p, p.ShopMenuSubs m, upb.MobileRegistrations r')
                 ->where('m.shop_id=?', $shop_id)
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->offset($offset)
+                ->limit($limit)
                 ->execute();
+    }
+    
+    public static function getCountUserProductsBasket($shop_id){
+        $q = Doctrine_Query::create()
+                ->select('COUNT(upb.id) AS total_orders, upb.id, p.id')
+                ->from('UserProductsBasket upb, upb.ShopProducts p, p.ShopMenuSubs m')
+                ->where('m.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+        
+        return $q['total_orders'];
     }
 }
