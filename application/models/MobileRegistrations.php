@@ -14,6 +14,7 @@ class MobileRegistrations extends BaseMobileRegistrations {
 
     public function addRegistration(array $data) {
         $r = new MobileRegistrations();
+        $r->shop_id = $data['shop_id'];
         $r->name = $data['name'];
         $r->email = $data['email'];
         $r->password = $data['password'];

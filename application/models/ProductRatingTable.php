@@ -16,4 +16,13 @@ class ProductRatingTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('ProductRating');
     }
+    
+    public static function getProductRating($shop_id){
+        return Doctrine_Query::create()
+                ->select('pr.*, r.*, p.name')
+                ->from('ProductRating pr, pr.ShopProducts p, p.ShopMenuSubs m, pr.MobileRegistrations r')
+                ->where('m.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->execute();
+    }
 }

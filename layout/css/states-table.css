@@ -1,0 +1,36 @@
+table{
+    width: 92%;
+}
+
+thead tr th{
+    font-family: Calibri;
+    background-color: #424242;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 4px;
+    border-left: 1px solid #c1c1c1;
+}
+
+.dark{
+    background-color: #f6f6f6;
+    font-size: 12px;
+    font-family: Calibri;
+    color: #797979;
+}
+
+.light{
+    background-color: #fafafa;
+    font-size: 12px;
+    font-family: Calibri;
+    color: #797979;    
+}
+
+.dark td, .light td{
+    padding: 6px;
+    border-left: 1px solid #c1c1c1;
+}
+
+.table-footer{
+    height: 5px;
+    background-color: #424242;
+}

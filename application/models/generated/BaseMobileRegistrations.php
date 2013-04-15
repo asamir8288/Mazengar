@@ -35,6 +35,14 @@ abstract class BaseMobileRegistrations extends Doctrine_Record
              'primary' => true,
              'autoincrement' => true,
              ));
+        $this->hasColumn('shop_id', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'autoincrement' => true,
+             ));
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'length' => 255,

@@ -16,4 +16,13 @@ class UserProductsBasketTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('UserProductsBasket');
     }
+    
+    public static function getUserProductsBasket($shop_id){
+        return Doctrine_Query::create()
+                ->select('upb.*, r.*, p.name')
+                ->from('UserProductsBasket upb, upb.ShopProducts p, p.ShopMenuSubs m, upb.MobileRegistrations r')
+                ->where('m.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->execute();
+    }
 }

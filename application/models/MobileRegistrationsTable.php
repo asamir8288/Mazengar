@@ -16,4 +16,14 @@ class MobileRegistrationsTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('MobileRegistrations');
     }
+    
+    public static function getRegistrations($shop_id){
+        return Doctrine_Query::create()
+                ->select('r.*')
+                ->from('MobileRegistrations r')
+                ->where('r.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->execute();
+    }
+    
 }

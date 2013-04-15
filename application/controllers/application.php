@@ -81,6 +81,7 @@ class Application extends CI_Controller {
         $data['email'] = $decoded['email'];
         $data['password'] = $decoded['password'];
         $data['phone'] = $decoded['phone'];
+        $data['shop_id'] = $decoded['shop_id'];
 
         $r = new MobileRegistrations();
         $response = false;

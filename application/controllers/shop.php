@@ -91,6 +91,42 @@ class Shop extends CI_Controller {
         $this->template->write_view('content', 'backend/edit_account', $this->data);
         $this->template->render();
     }
+    
+    public function shopping_data(){
+        $this->data['top_menu'] = loggedinMenu('');
+        $this->data['page_nav'] = '<li><a class="parent-breadcrumb" href="#">Shopping Data</a></li>';
+        $this->data['page_title'] = 'Shopping Data';
+        
+        $this->data['shopping_products'] = UserProductsBasketTable::getUserProductsBasket(self::$user_info['shop_id']);        
+        
+        $this->template->add_css('layout/css/states-table.css');
+        $this->template->write_view('content', 'backend/states/shopping_data', $this->data);
+        $this->template->render();
+    }
+    
+    public function rating(){
+        $this->data['top_menu'] = loggedinMenu('');
+        $this->data['page_nav'] = '<li><a class="parent-breadcrumb" href="#">Rating Data</a></li>';
+        $this->data['page_title'] = 'Rating Data';
+        
+        $this->data['rating_products'] = ProductRatingTable::getProductRating(self::$user_info['shop_id']);        
+        
+        $this->template->add_css('layout/css/states-table.css');
+        $this->template->write_view('content', 'backend/states/rating_data', $this->data);
+        $this->template->render();
+    }
+    
+    public function registrations(){
+        $this->data['top_menu'] = loggedinMenu('');
+        $this->data['page_nav'] = '<li><a class="parent-breadcrumb" href="#">Users Data</a></li>';
+        $this->data['page_title'] = 'Users Data';
+        
+        $this->data['registrations'] = MobileRegistrationsTable::getRegistrations(self::$user_info['shop_id']);        
+        
+        $this->template->add_css('layout/css/states-table.css');
+        $this->template->write_view('content', 'backend/states/users_data', $this->data);
+        $this->template->render();
+    }
 
 }
 
