@@ -21,7 +21,7 @@
                     
                     if(fileObj.type.toLowerCase() == '.jpg' || fileObj.type.toLowerCase() == '.jpeg' || fileObj.type.toLowerCase() == '.png' || fileObj.type.toLowerCase() == '.gif')
                     {								  
-			parentAppend.find('object').eq(0).remove();
+                        parentAppend.find('object').eq(0).remove();
                         $(".dashboard-logo").remove();
                         $(".upload-image-anchor").remove();
                         $(".dashboard-logo-wrapper").append('<img class="dashboard-logo" src="'+site_url() +'uploads/' + img + '" />');                    													
@@ -123,6 +123,24 @@
     <li><a href="<?php echo site_url('gallery/manage_albums'); ?>" class="large-btn-dashboard gray-bg-dashboard">MANAGE GALLERY</a></li>    
     <li><a href="<?php echo site_url('about_us'); ?>" class="large-btn-dashboard gray-bg-dashboard">MANAGE ABOUT US</a></li>  
     <!--    <li><a class="large-btn-dashboard gray-bg-dashboard">CONTACT US</a></li>    -->
+
+    <?php
+    if ($shop_details['users_list_flag'] == 1) {
+        ?>
+        <li><a href="<?php echo site_url('shop/registrations'); ?>" class="large-btn-dashboard gray-bg-dashboard">Users Data</a></li>  
+        <?php
+    } 
+    if ($shop_details['shopping_list_flag'] == 1) {
+        ?>
+        <li><a href="<?php echo site_url('shop/shopping_data'); ?>" class="large-btn-dashboard gray-bg-dashboard">Shopping Orders</a></li>  
+        <?php
+    } 
+    if ($shop_details['rating_list_flag'] == 1) {
+        ?>
+        <li><a href="<?php echo site_url('shop/rating'); ?>" class="large-btn-dashboard gray-bg-dashboard">Rating Data</a></li>  
+        <?php
+    }
+    ?>
 
 
 </ul>
