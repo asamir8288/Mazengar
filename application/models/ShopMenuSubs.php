@@ -23,8 +23,7 @@ class ShopMenuSubs extends BaseShopMenuSubs {
         return $top_level['id'];
     }
     
-    public function getSubMenuItems($item_id){
-        var_dump($item_id);exit;
+    public function getSubMenuItems($item_id){        
         return Doctrine_Query::create()
                 ->select('id, name')
                 ->from('ShopMenuSubs m')

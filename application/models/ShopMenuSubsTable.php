@@ -186,7 +186,7 @@ class ShopMenuSubsTable extends Doctrine_Table {
             $n = Doctrine_Query::create()
                     ->select('m.id, m.level, name')
                     ->from('ShopMenuSubs m')
-                    ->where('m.id=?', ($q['related_to'] - $i))
+                    ->where('m.id=?', $q['related_to'])
                     ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                     ->fetchOne();
 
