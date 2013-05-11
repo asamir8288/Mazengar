@@ -143,6 +143,7 @@ function product_menu($menu_id, $sub_id) {
 
     $m = new ShopMenuSubs();
     $menu_items = $m->getSubMenuItems($menu_id);
+    var_dump($menu_items);
 
     $html = '<select class="custom-select shopcategory" required="required" name="shopcategory">
         <option value="" selected="">Select</option>';

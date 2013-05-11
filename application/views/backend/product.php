@@ -57,7 +57,6 @@
             <label class="form-label-short">Category</label>
             <div class="select-options-wrapper menu_subs">
                 <?php
-                var_dump($product_menu);
                 if (isset($product_menu) && count($product_menu)) {
                     for ($i = 0; $i < count($product_menu) - 1; $i++) {
                         echo product_menu($product_menu[$i]['id'], $data['sub_id']);
