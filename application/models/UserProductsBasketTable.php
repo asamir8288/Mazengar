@@ -38,4 +38,11 @@ class UserProductsBasketTable extends Doctrine_Table
         
         return $q['total_orders'];
     }
+    
+    public function hardDeleteProductsBasket($shop_id){
+        Doctrine_Query::create()
+                ->delete('UserProductsBasket pc')
+                ->where('pc.product_id IN (SELECT p.id FROM ShopProducts p INNER JOIN p.ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
+                ->execute();
+    }
 }
