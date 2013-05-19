@@ -17,6 +17,7 @@ class Admin extends CI_Controller {
     
     public function delete_shop($shop_id){
         ProductRatingTable::hardDeleteProductsRatings($shop_id);
+        UserProductsBasketTable::hardDeleteProductsBasket($shop_id);
         
         $pc = new ShopProductComponents();
         $pc->hardDeleteProductsComponents($shop_id);
