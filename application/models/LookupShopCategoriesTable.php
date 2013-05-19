@@ -26,4 +26,14 @@ class LookupShopCategoriesTable extends Doctrine_Table
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->execute();
     }
+    
+    public static function getShopCategories($category_name){
+        $q = Doctrine_Query::create()
+                ->select('sc.id')
+                ->from('LookupShopCategories sc')
+                ->where('sc.name=?', $category_name)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();
+        return $q['id'];
+    }
 }

@@ -20,6 +20,13 @@ class Application extends CI_Controller {
         $data = ShopsTable::getShops();
         echo json_encode($data);
     }
+    
+    public function new_json($category_name) {
+        $category_id = LookupShopCategoriesTable::getShopCategories($category_name);
+        
+        $data = ShopsTable::getShopsByCityOrCategory($category_id);
+        echo json_encode($data);
+    }
 
     public function getAlbums($shop_id) {
         $data = ShopAlbumsTable::getShopAlbumsImages($shop_id);
