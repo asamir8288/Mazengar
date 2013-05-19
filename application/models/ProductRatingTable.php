@@ -38,4 +38,11 @@ class ProductRatingTable extends Doctrine_Table
         
         return $q['total_ratings'];
     }
+    
+    public function hardDeleteProductsRatings($shop_id){
+        Doctrine_Query::create()
+                ->delete('ProductRating pc')
+                ->where('pc.product_id IN (SELECT p.id FROM ShopProducts p INNER JOIN p.ShopMenuSubs ms WHERE ms.shop_id='. $shop_id .')')
+                ->execute();
+    }
 }
