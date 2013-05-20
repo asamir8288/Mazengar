@@ -34,13 +34,16 @@ class ShopsTable extends Doctrine_Table {
                         ->execute();
     }
 
-    public static function getShopsByCityOrCategory($category_id = '') {
+    public static function getShopsByCityOrCategory($category_id = '', $city_name = '') {
         $q = Doctrine_Query::create()
                 ->select('s.*, op.*')
                 ->from('Shops s, s.ShopOnlinePresence op')
                 ->where('s.deleted=0');
         if ($category_id) {
             $q = $q->andWhere('s.category_id=?', $category_id);
+        }
+        if ($city_name) {
+            $q = $q->andWhere('s.city=?', trim($city_name));
         }
 
         $q = $q->orderBy('RAND()')
