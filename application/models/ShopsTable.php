@@ -43,7 +43,9 @@ class ShopsTable extends Doctrine_Table {
             $q = $q->andWhere('s.category_id=?', $category_id);
         }
         if ($city_name) {
-            $q = $q->andWhere('s.city LIKE "%'.$city_name.'%"');
+            $city = str_replace('%20', ' ', $city_name);
+            
+            $q = $q->andWhere('s.city LIKE "%'.$city.'%"');
         }
 
         $q = $q->orderBy('RAND()')
