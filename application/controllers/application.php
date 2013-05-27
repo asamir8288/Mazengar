@@ -21,10 +21,20 @@ class Application extends CI_Controller {
         echo json_encode($data);
     }
     
+    public function get_categories(){
+        $categories = LookupShopCategoriesTable::getAllShopCategories();
+        echo json_encode($categories);
+    }
+    
+    public function shop_cities(){
+        $cities = ShopsTable::getShopsCities();
+        echo json_encode($cities);
+    }
+    
     public function new_json($category_name = '', $city_name = '') {
         $category_id = LookupShopCategoriesTable::getShopCategories($category_name, $city_name);
         
-        $data = ShopsTable::getShopsByCityOrCategory($category_id);
+        $data = ShopsTable::getShopsByCityOrCategory($category_id, $city_name);
         echo json_encode($data);
     }
 

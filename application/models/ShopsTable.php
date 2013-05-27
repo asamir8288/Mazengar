@@ -43,7 +43,7 @@ class ShopsTable extends Doctrine_Table {
             $q = $q->andWhere('s.category_id=?', $category_id);
         }
         if ($city_name) {
-            $q = $q->andWhere('s.city=?', trim($city_name));
+            $q = $q->andWhere('s.city=?', $city_name);
         }
 
         $q = $q->orderBy('RAND()')
@@ -51,6 +51,14 @@ class ShopsTable extends Doctrine_Table {
                 ->execute();
         
         return $q;
+    }
+    
+    public static function getShopsCities(){
+        return Doctrine_Query::create()
+                ->select('DISTINCT(s.city)')
+                ->from('Shops s')
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->execute();
     }
 
 }

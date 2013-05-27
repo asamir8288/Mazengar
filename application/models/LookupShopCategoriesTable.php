@@ -17,9 +17,9 @@ class LookupShopCategoriesTable extends Doctrine_Table
         return Doctrine_Core::getTable('LookupShopCategories');
     }
     
-    public static function getAllShopCategories($lang_id){
+    public static function getAllShopCategories($lang_id = 1){
         return Doctrine_Query::create()
-                ->select('sc.*')
+                ->select('sc.id, sc.name')
                 ->from('LookupShopCategories sc')
                 ->where('sc.lang_id=?', $lang_id)
                 ->orderBy('sc.name ASC')
