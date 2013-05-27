@@ -130,5 +130,11 @@
             <span class="real-estate">Health</span>
         </div>
     </div>
+    <div class="partner-box" style="margin-right: 0px;"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/soccer-street.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">SOCCER STREET</span>
+            <span class="real-estate">Clothes</span>
+        </div>
+    </div>
 
 </div>
