@@ -75,13 +75,7 @@
             <span class="title">7agat Handmade</span>
             <span class="real-estate">Accessories</span>
         </div>
-    </div>
-    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/antakhana.png" />
-        <div style="margin-left: 4px;">
-            <span class="title">Antakhana</span>
-            <span class="real-estate">Furniture</span>
-        </div>
-    </div>
+    </div>   
     <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/rabie-mrad.png" />
         <div style="margin-left: 4px;">
             <span class="title">Rabie Mrad</span>
@@ -98,6 +92,42 @@
         <div style="margin-left: 4px;">
             <span class="title">TOI</span>
             <span class="real-estate">Beauty</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/eve.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">eve</span>
+            <span class="real-estate">Beauty</span>
+        </div>
+    </div>
+    <div class="partner-box" style="margin-right: 0px;"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/my-fair-plus.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">MY FAIR PLUS</span>
+            <span class="real-estate">Education</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/resala.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">RESALA</span>
+            <span class="real-estate">Charity</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/elite.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">ELITE INT. SCHOOL</span>
+            <span class="real-estate">Education</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/cic.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">CIC</span>
+            <span class="real-estate">Education</span>
+        </div>
+    </div>
+    <div class="partner-box"><img src="<?php echo static_url(); ?>layout/images/frontend/partners/mass-building.png" />
+        <div style="margin-left: 4px;">
+            <span class="title">MASS BUILDING</span>
+            <span class="real-estate">Health</span>
         </div>
     </div>
 
