@@ -196,5 +196,25 @@ class ShopMenuSubsTable extends Doctrine_Table {
         $menu_item[] = $q;
         return $menu_item;
     }
+    
+    public function getShopProductsByShopID($shop_id, $offset=0, $limit=10){
+        return Doctrine_Query::create()
+                ->select('p.*, pc.*')
+                ->from('ShopProducts p, p.ShopMenuSubs m, p.ShopProductComponents pc')
+                ->where('m.shop_id=?', $shop_id)
+                ->offset($offset)
+                ->limit($limit)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->execute();
+    }
+    
+     public function getCountShopProductsByShopID($shop_id){
+        return Doctrine_Query::create()
+                ->select('count(p.id) AS count_shop_products')
+                ->from('ShopProducts p, p.ShopMenuSubs m')
+                ->where('m.shop_id=?', $shop_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->fetchOne();           
+    }
 
 }

@@ -21,6 +21,8 @@ class Application extends CI_Controller {
         echo json_encode($data);
     }
     
+    
+    // Start New Queries
     public function get_categories(){
         $categories = LookupShopCategoriesTable::getAllShopCategories();
         echo json_encode($categories);
@@ -37,7 +39,32 @@ class Application extends CI_Controller {
         $data = ShopsTable::getShopsByCityOrCategory($category_id, $city_name);
         echo json_encode($data);
     }
-
+    
+    public function get_total_products_count($shop_id){
+        $data = ShopMenuSubsTable::getCountShopProductsByShopID($shop_id);
+        
+        echo json_encode($data);
+    }
+    
+    public function shop_products($shop_id, $offset= 0, $limit=10){
+        $data = ShopMenuSubsTable::getShopProductsByShopID($shop_id, $offset, $limit);
+        echo json_encode($data);
+    }
+    
+    public function shop_branches($shop_id){
+        $data = ShopBranchesTable::getShopBranches($shop_id);
+        echo json_encode($data);
+    }
+    
+    public function search($keyword){
+        $data = ShopProductsTable::searchProducts($keyword);
+        echo json_encode($data);
+    }
+    
+    // End New Queries
+    
+    
+// Old Queries
     public function getAlbums($shop_id) {
         $data = ShopAlbumsTable::getShopAlbumsImages($shop_id);
         echo json_encode($data);

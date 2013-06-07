@@ -27,4 +27,13 @@ class ShopProductsTable extends Doctrine_Table
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->execute();
     }
+    
+    public static function searchProducts($keyword){
+        return Doctrine_Query::create()
+                ->select('p.*, pc.*')
+                ->from('ShopProducts p, p.ShopProductComponents pc')
+                ->where('p.name LIKE ?', '%' .$keyword . '%')  
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
+                ->execute();
+    }
 }
