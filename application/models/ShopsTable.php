@@ -36,9 +36,9 @@ class ShopsTable extends Doctrine_Table {
 
     public static function getShopsByCityOrCategory($category_id = '', $city_name = '') {
         $q = Doctrine_Query::create()
-                ->select('s.*, op.*,
+                ->select('s.*, op.*,m2.id, b.*,
                     (SELECT count(p.id) FROM ShopProducts p LEFT JOIN p.ShopMenuSubs m WHERE m.shop_id=s.id AND p.deleted=0) AS count_shop_products')
-                ->from('Shops s, s.ShopOnlinePresence op')
+                ->from('Shops s, s.ShopOnlinePresence op, s.ShopMenuSubs m2, m2.ShopBranches b')
                 ->where('s.deleted=0');
         if ($category_id) {
             $q = $q->andWhere('s.category_id=?', $category_id);

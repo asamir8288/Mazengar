@@ -202,6 +202,8 @@ class ShopMenuSubsTable extends Doctrine_Table {
                 ->select('p.*, pc.*')
                 ->from('ShopProducts p, p.ShopMenuSubs m, p.ShopProductComponents pc')
                 ->where('m.shop_id=?', $shop_id)
+                ->andWhere('p.deleted=0')
+                ->andWhere('p.availability=1')
                 ->offset($offset)
                 ->limit($limit)
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
