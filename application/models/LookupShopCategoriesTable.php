@@ -31,7 +31,7 @@ class LookupShopCategoriesTable extends Doctrine_Table
         $q = Doctrine_Query::create()
                 ->select('sc.id')
                 ->from('LookupShopCategories sc')
-                ->where('sc.name=?', $category_name)
+                ->where('sc.name=?', trim($category_name))
                 ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY)
                 ->fetchOne();
         return $q['id'];
