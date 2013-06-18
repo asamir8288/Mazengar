@@ -28,7 +28,6 @@ class LookupShopCategoriesTable extends Doctrine_Table
     }
     
     public static function getShopCategories($category_name){
-        $category_name = str_replace('%20', ' ', $category_name);
         $q = Doctrine_Query::create()
                 ->select('sc.id')
                 ->from('LookupShopCategories sc')
