@@ -36,7 +36,7 @@ class Application extends CI_Controller {
     public function new_json($category_name = '', $city_name = '') {
         $category_id = LookupShopCategoriesTable::getShopCategories($category_name);
         
-        var_dump($category_name);exit;
+        var_dump($category_id);exit;
         
         $data = ShopsTable::getShopsByCityOrCategory($category_id, $city_name);
         echo json_encode($data);
