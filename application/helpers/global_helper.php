@@ -138,14 +138,18 @@ function loggedinMenu($activeItem) {
     return $html;
 }
 
-function product_menu($menu_id, $sub_id) {
+function product_menu($menu_id, $sub_id, $mode) {
     $CI = & get_instance();
 
     $m = new ShopMenuSubs();
     $menu_items = $m->getSubMenuItems($menu_id);
 
-    $html = '<select class="custom-select shopcategory" required="required" name="shopcategory">
-        <option value="" selected="">Select</option>';
+    if(isset($mode) && $mode == 'edit'){
+        $html = '<select class="custom-select shopcategory" name="shopcategory">';
+    }else{
+        $html = '<select class="custom-select shopcategory" required="required" name="shopcategory">';
+    }
+    $html .='<option value="" selected="">Select</option>';
     foreach ($menu_items as $menu) {
         if($menu['id'] == $sub_id){
             $html .= '<option value="' . $menu['id'] . '" selected="selected">' . $menu['name'] . '</option>';

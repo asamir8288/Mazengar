@@ -45,6 +45,9 @@ class Product extends CI_Controller {
 
         $this->data['currencies'] = LookupCurrenciesTable::getCurrencies();
         
+        // set the Mode .. Edit or Create
+        $this->data['mode'] = 'create';
+        
         $s = new Shops();
         $category_id = $s->getShopCategoryId(self::$user_info['shop_id']);
         $this->data['filters'] = ShopCategoryFiltersTable::getCategoryFilters($category_id);
@@ -125,6 +128,9 @@ class Product extends CI_Controller {
 
         $p = new ShopProducts();
         $this->data['data'] = $p->getOne($id);
+        
+        // set the Mode .. Edit or Create
+        $this->data['mode'] = 'edit';
 
         $this->data['product_menu'] = ShopMenuSubsTable::getProductMenu($this->data['data']['sub_id']);
 
